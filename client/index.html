@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="officeSpace">
+<head>
+    <title>Office Space</title>
+    <link href="content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="content/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="content/css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Menu-->
+    <button><a href="#/home">Home</a></button>
+    <button><a href="#/admin">Admin</a></button>
+
+
+    <!--View Container-->
+    <ng-view></ng-view>
+
+
+    <!--Vendor Scripts-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+
+    <!--App Scripts-->
+    <script src="app.js"></script>
+    <script src="controllers/detailController.js"></script>
+</body>
+</html>
