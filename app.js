@@ -10,7 +10,7 @@ var express = require('express')
 var app = express();
 
 // all environments
-app.set('port', 3000);
+app.set('port', process.env.PORT || 5000);
 
 app.use(express.compress());
 
