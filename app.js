@@ -21,6 +21,10 @@ app.get('/api', function(req,res){
     console.log("api called");
 });
 
+app.get('/api2', function(req,res){
+    console.log("api2 called");
+});
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
