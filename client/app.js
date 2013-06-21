@@ -19,8 +19,5 @@ app.config(function ($routeProvider, $controllerProvider, $compileProvider, $fil
         templateUrl: 'views/admin.html'
     });
 
-
-
-
     $routeProvider.otherwise({ redirectTo: '/' });
 });

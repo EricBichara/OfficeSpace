@@ -1,0 +1,24 @@
+html{
+    padding: 5px;
+}
+
+.panel{
+    border: solid;
+    border-width: 3px;
+    border-color: #006dcc;
+}
+
+.panel-header{
+    width: 100%;
+}
+
+.panel-title{
+    background: #006dcc;
+    color: #ffffff;
+    margin: 0px;
+    padding: 5px;
+}
+
+.panel-content{
+    padding: 5px;
+}
