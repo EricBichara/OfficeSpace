@@ -16,7 +16,17 @@ app.config(function ($routeProvider, $controllerProvider, $compileProvider, $fil
     });
 
     $routeProvider.when('/admin',{
-        templateUrl: 'views/admin.html'
+        templateUrl: 'views/admin.html',resolve:{deps:function($q, $rootScope){
+            var deferred = $q.defer();
+            var dependencies = ['controllers/AdminController.js'];
+
+            $script(dependencies, function(){
+                $rootScope.$apply(function(){
+                    deferred.resolve();
+                });
+            });
+            return deferred.promise;
+        }}
     });
 
     $routeProvider.otherwise({ redirectTo: '/' });

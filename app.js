@@ -5,24 +5,24 @@
 var express = require('express')
   , http = require('http')
   , path = require('path')
-  , mongoose = require('mongoose');
+  , mongoose = require('mongoose')
+  , dbManager = require('./server/dbManager.js');
 
 var app = express();
 
 // all environments
 app.set('port', process.env.PORT || 5000);
-
+app.set('dbString',
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://localhost/HelloMongoose');
 app.use(express.compress());
-
 app.use(express.static(path.join(__dirname, 'client')));
 
-app.get('/api', function(req,res){
-    console.log("api called");
+app.get('/getOffices', function(req, res){
+    res.json(dbManager.fetchOffices());
 });
 
-app.get('/api2', function(req,res){
-    console.log("api2 called");
-});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
