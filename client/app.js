@@ -11,8 +11,8 @@ app.config(function ($routeProvider, $controllerProvider, $compileProvider, $fil
     $routeProvider.when('/', {
         templateUrl: 'views/home.html'});
 
-    $routeProvider.when('/detail/:id',{
-        templateUrl: 'views/detail.html'
+    $routeProvider.when('/details/:id',{
+        templateUrl: 'views/details.html'
     });
 
     $routeProvider.when('/admin',{
