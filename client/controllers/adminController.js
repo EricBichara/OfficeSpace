@@ -1,4 +1,4 @@
-app.controllerProvider.register('AdminController', function ($scope, officeService) {
+app.controllerProvider.register('adminController', function ($scope, officeService) {
     $scope.name = "";
     $scope.type = "";
 
