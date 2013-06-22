@@ -9,16 +9,16 @@ app.config(function ($routeProvider, $controllerProvider, $compileProvider, $fil
     app.provide            = $provide;
 
     $routeProvider.when('/', {
-        templateUrl: 'views/Home.html'});
+        templateUrl: 'views/home.html'});
 
     $routeProvider.when('/detail/:id',{
-        templateUrl: 'views/Detail.html'
+        templateUrl: 'views/detail.html'
     });
 
     $routeProvider.when('/admin',{
-        templateUrl: 'views/Admin.html',resolve:{deps:function($q, $rootScope){
+        templateUrl: 'views/admin.html',resolve:{deps:function($q, $rootScope){
             var deferred = $q.defer();
-            var dependencies = ['controllers/AdminController.js'];
+            var dependencies = ['controllers/adminController.js'];
 
             $script(dependencies, function(){
                 $rootScope.$apply(function(){
