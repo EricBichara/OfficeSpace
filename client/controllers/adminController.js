@@ -2,12 +2,6 @@ app.controllerProvider.register('AdminController', function ($scope, officeServi
     $scope.name = "";
     $scope.type = "";
 
-    init();
-
-    function init() {
-
-    }
-
     $scope.fetchOffices = function(){
         var data = officeService.fetchOffices().then(function(data){
             $scope.name = data.name;
