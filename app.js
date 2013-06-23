@@ -15,7 +15,8 @@ app.set('port', process.env.PORT || 5000);
 app.set('dbString',
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
-    'mongodb://localhost/HelloMongoose');
+    'mongodb://localhost/test');
+
 app.use(express.compress());
 app.use(express.static(path.join(__dirname, 'client')));
 
