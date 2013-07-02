@@ -2,6 +2,11 @@ html{
     padding: 5px;
 }
 
+body{
+    width: 960px;
+    margin: auto;
+}
+
 .panel{
     border: solid;
     border-width: 3px;

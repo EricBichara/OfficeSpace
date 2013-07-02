@@ -4,4 +4,11 @@ app.service('officeService', function ($http) {
                return result.data;
         });
     }
+
+    this.createOffice = function(office){
+        console.log("here");
+        /*$http.post('/getOffices', office).then(function(result){
+           return result.data;
+        });*/
+    }
 });

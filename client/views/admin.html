@@ -1,6 +1,7 @@
 <div ng-controller="adminController">
-    <div>Admin</div>
-    <label>{{name}}</label>
-    <label>{{type}}</label>
-    <button ng-click="fetchOffices()">Get Offices</button>
+    <div>Create Office</div>
+
+    <input type="checkbox" ng-checked="{{office.isOffice}}" ng-model="{{office.isOffice}}">
+
+    <button ng-click="createOffice()">Create Office</button>
 </div>
