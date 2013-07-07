@@ -1,7 +1,8 @@
 <div ng-controller="adminController">
     <div>Create Office</div>
 
-    <input type="checkbox" ng-checked="{{office.isOffice}}" ng-model="{{office.isOffice}}">
+    <input type="checkbox" ng-checked="office.isOffice" ng-model="office.isOffice">
+    <textarea ng-model="office.pitch"></textarea>
 
     <button ng-click="createOffice()">Create Office</button>
 </div>
