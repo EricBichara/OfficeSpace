@@ -20,7 +20,7 @@ app.set('dbString',
 app.use(express.compress());
 app.use(express.static(path.join(__dirname, 'client')));
 
-mongoose.connect(app.get('dbString'));
+/*mongoose.connect(app.get('dbString'));*/
 
 /** Services **/
 app.get('/getOffices', dbManager.fetchOffices);
