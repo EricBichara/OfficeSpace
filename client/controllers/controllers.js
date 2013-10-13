@@ -29,7 +29,11 @@ app.controller('SearchController', ['$scope', 'officeService',
     function PortalController($scope, officeService){
         $scope.city = officeService.city;
 
+        $scope.projects = officeService.getProjects();
+        $scope.newsList = officeService.getNews();
+
         $scope.hello = "hello";
+
 
         angular.extend($scope, {
             center: {

@@ -28,6 +28,27 @@ function Office(){
     this.contactList = [];
 }
 
+function Project(){
+    this.name = null;
+    this.apps = null;
+    this.startDate = null;
+    this.endDate = null;
+    this.minRooms = null;
+    this.maxRooms = null;
+    this.minPrice = null;
+    this.maxPrice = null;
+    this.rent = null;
+    this.projectPic = null;
+    this.companyPic = null;
+}
+
+function News(){
+    this.date = null;
+    this.title = null;
+    this.content = null;
+}
+
+
 function Contact(){
     this.name = "";
     this.title = "";

@@ -1,4 +1,31 @@
 <div data-ng-controller="SearchController">
-    <google-map center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true"></google-map>
+    <form class="form-inline" role="form">
+        <input class="wide-input form-control" type="text" placeholder="Search">
+        <button class="btn btn-primary">More</button>
+    </form>
+    <br/>
+    <panel title="Map" class="map-panel">
+        <google-map center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true"></google-map>
+    </panel>
     <!--<map id="map-canvas"></map>-->
+    <panel id="ad-panel" class="float-right" title="Reklam">
+        <img src="/content/images/caffe.jpg">
+    </panel>
+    <panel id="news-panel" class="float-right" title="Nyheter">
+        <ul>
+            <li data-ng-repeat="news in newsList">
+                {{news.title}}<br/>
+                {{news.date}}<br/>
+                {{news.content}}
+            </li>
+        </ul>
+    </panel>
+
+    <panel title="Results" id="results-panel">
+        <div data-ng-repeat="project in projects" class="result-row">
+            {{project.name}}
+            <img class="image-border" src="{{project.projectPic}}">
+            <img class="image-border" src="{{project.companyPic}}">
+        </div>
+    </panel>
 </div>
