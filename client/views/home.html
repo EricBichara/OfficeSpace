@@ -1,7 +1,15 @@
 <div data-ng-controller="SearchController">
     <form class="form-inline" role="form">
         <input class="wide-input form-control" type="text" placeholder="Search">
-        <button class="btn btn-primary">More</button>
+        <button class="btn btn-primary" data-toggle="modal" data-ng-click="openAdvSearch()">More</button>
+        <label>{{city}}</label>
+    </form>
+    <form data-ng-hide="!showAdvSearch">
+        <input>
+        <input>
+        <input>
+        <input>
+        <input>
     </form>
     <br/>
     <panel title="Map" class="map-panel">
@@ -22,10 +30,15 @@
     </panel>
 
     <panel title="Results" id="results-panel">
-        <div data-ng-repeat="project in projects" class="result-row">
-            {{project.name}}
-            <img class="image-border" src="{{project.projectPic}}">
-            <img class="image-border" src="{{project.companyPic}}">
+        <div data-ng-repeat="project in projects" data-ng-click="selectProject(project)" class="result-row">
+            <div>
+                <img class="image-border left" src="{{project.projectPic}}">
+                <div class="left">
+                    <label>Projekt: {{project.name}}</label>
+                    <label>Antal: {{project.apps}}</label>
+                </div>
+                <img class="image-border right" src="{{project.companyPic}}">
+            </div>
         </div>
     </panel>
 </div>

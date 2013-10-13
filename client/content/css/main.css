@@ -52,7 +52,7 @@ google-map{
 }
 
 .result-row{
-    height: 70px;
+    height: 77px;
     padding: 5px;
     border-bottom: 2px #006dcc solid;
 }
@@ -83,4 +83,12 @@ google-map{
 
 .wide-input{
     width: 200px;
+}
+
+.left{
+    float:left;
+}
+
+.right{
+    float:right;
 }

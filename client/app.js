@@ -6,7 +6,8 @@ app.config(function ($routeProvider){//, $rootScope) {
     when('/', {
         templateUrl: 'views/home.html'}).
     when('/project/:id',{
-        templateUrl: 'views/project.html'}).
+        templateUrl: 'views/project.html',
+        controller: 'ProjectController'}).
     when('/portal', {
         templateUrl: 'views/portal.html',
         controller: 'PortalController'}).

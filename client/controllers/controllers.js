@@ -18,6 +18,14 @@ app.controller('PortalController', ['$scope', '$location', 'officeService',
         }
     }]);
 /**
+ * Created by ericbichara on Oct/13/13.
+ */
+app.controller('ProjectController', ['$scope', '$location', 'officeService', '$routeParams',
+    function ProjectController($scope, $location, officeService, $routeParams){
+        $scope.project = $routeParams.id;
+
+    }]);
+/**
  * Created with JetBrains WebStorm.
  * User: ericbichara
  * Date: Jun/17/13
@@ -25,15 +33,21 @@ app.controller('PortalController', ['$scope', '$location', 'officeService',
  * To change this template use File | Settings | File Templates.
  */
 
-app.controller('SearchController', ['$scope', 'officeService',
-    function PortalController($scope, officeService){
+app.controller('SearchController', ['$scope', 'officeService', '$location',
+    function PortalController($scope, officeService, $location){
         $scope.city = officeService.city;
-
+        $scope.showAdvSearch = false;
         $scope.projects = officeService.getProjects();
         $scope.newsList = officeService.getNews();
 
-        $scope.hello = "hello";
+        $scope.openAdvSearch = function(){
+            $scope.showAdvSearch = !$scope.showAdvSearch;
+        }
 
+        $scope.selectProject = function(project){
+            $location.path('project/' + project.name);
+
+        }
 
         angular.extend($scope, {
             center: {
