@@ -1,4 +1,7 @@
 app.service('officeService', function ($http) {
+
+    this.city = "stockholm";
+
     this.fetchOffices = function () {
         return $http.get('/getOffices').then(function(result){
                return result.data;
@@ -10,5 +13,9 @@ app.service('officeService', function ($http) {
         /*$http.post('/getOffices', office).then(function(result){
            return result.data;
         });*/
+    }
+
+    this.setCity = function(city){
+        this.city = city;
     }
 });

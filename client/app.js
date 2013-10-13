@@ -1,19 +1,22 @@
-var app = angular.module('officeSpace', []);
+var app = angular.module('officeSpace', ['ngRoute', "google-maps"]);
 
-app.config(function ($routeProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
+app.config(function ($routeProvider){//, $rootScope) {
 
-    app.controllerProvider = $controllerProvider;
-    app.compileProvider    = $compileProvider;
-    app.routeProvider      = $routeProvider;
-    app.filterProvider     = $filterProvider;
-    app.provide            = $provide;
+    $routeProvider.
+    when('/', {
+        templateUrl: 'views/home.html'}).
+    when('/project/:id',{
+        templateUrl: 'views/project.html'}).
+    when('/portal', {
+        templateUrl: 'views/portal.html',
+        controller: 'PortalController'}).
+    otherwise({ redirectTo: '/' });
 
-    $routeProvider.when('/', {
-        templateUrl: 'views/home.html'});
+    /*$rootScope.$on("$routeChangeStart", function ( next, current) {
 
-    $routeProvider.when('/project/:id',{
-        templateUrl: 'views/project.html'
-    });
+        if (false){ //check if user has already chosen a city
+            $location.path('/');
+        }
 
-    $routeProvider.otherwise({ redirectTo: '/' });
+    });*/
 });
