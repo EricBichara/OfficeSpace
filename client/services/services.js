@@ -65,7 +65,7 @@ app.service('officeService', function ($http) {
         for(var i = 0; i<5; i++){
             var news = new News();
             news.date = "2014-10-05";
-            news.title = "Yo";
+            news.title = "Yo" + i;
             news.content = "Some shit happened";
 
             tempNews.push(news);

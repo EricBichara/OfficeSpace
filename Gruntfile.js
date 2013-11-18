@@ -40,6 +40,14 @@ module.exports = function(grunt) {
                 files: ['**/*.js', '!**/node_modules/**'],
                 tasks: ['default']
             }
+        },
+        compass: {
+            dev: {
+                options: {
+                    sassDir: 'client/content/scss',
+                    cssDir: 'client/content/css'
+                }
+            }
         }
     });
 
@@ -48,8 +56,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-compass');
 
     // Default task(s).
-    grunt.registerTask('default', ['clean:pre', 'concat', 'watch']);
+    grunt.registerTask('default', ['clean:pre', 'concat', 'compass', 'watch']);
 
 };
