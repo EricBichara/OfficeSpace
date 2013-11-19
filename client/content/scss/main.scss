@@ -18,7 +18,7 @@ body{
 }
 
 .panel-title{
-  background: #006dcc;
+  background: $blue-color;
   color: #ffffff;
   margin: 0px;
   padding: 5px;
@@ -54,7 +54,7 @@ google-map{
 .result-row{
   height: 65px;
   padding: 5px;
-  border-bottom: 2px #006dcc solid;
+  border-bottom: 2px $blue-color solid;
 }
 
 .result-row:hover, #news-panel li:hover{
@@ -73,7 +73,7 @@ google-map{
 }
 
 #news-panel li{
-  border-bottom: 2px #006dcc solid;
+  border-bottom: 2px $blue-color solid;
 }
 
 #ad-panel img{

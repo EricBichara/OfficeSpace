@@ -16,6 +16,7 @@
         ga('send', 'pageview');
     </script>
 </head>
+
 <body>
     <!--Menu-->
     <nav class="navbar navbar-default" role="navigation">
@@ -30,7 +31,6 @@
             <a class="navbar-brand" href="#">Nyprod.se</a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#/portal">Portal</a></li>
@@ -41,21 +41,18 @@
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
             </form>
-
-        </div><!-- /.navbar-collapse -->
+        </div>
     </nav>
+    <!-- End Menu -->
 
     <!--View Container-->
     <ng-view></ng-view>
 
-
-
     <!--Vendor Scripts-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKRDvH-yQ89IN9tuv51mF8vAgwavJRcYY&sensor=false"></script>
-    <script src="lib/angular.js"></script>
-    <script src="lib/angular-route.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="lib/angular-google-maps.js"></script>
 
     <!--App Scripts-->
