@@ -18,7 +18,9 @@
   ],
   "dependencies": {
     "angular-ra-route": "~0.0.13",
-    "angular": "~1.2.1",
-    "angular-ui-map": "~0.0.2"
+    "angular": "~1.2.3",
+    "angular-ui-map": "~0.0.2",
+    "jasmine": "~1.3.1",
+    "angular-google-maps": "~1.0.0"
   }
 }

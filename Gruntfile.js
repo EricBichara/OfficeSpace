@@ -36,8 +36,11 @@ module.exports = function(grunt) {
                 'client/services/services.js']
         },
         watch:{
+            options:{
+                livereload: 35729
+            },
             scripts:{
-                files: ['**/*.js', '!**/node_modules/**'],
+                files: ['**/*.js', '**/*.scss', '!**/node_modules/**'],
                 tasks: ['default']
             }
         },

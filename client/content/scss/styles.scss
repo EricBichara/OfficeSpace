@@ -1,0 +1,261 @@
+/****************************************************
+*  Styles for project X
+*
+****************************************************/
+
+body {
+	background: #f9f9f9 url(../images/bg-noise.png) repeat top left;
+	margin: 0;
+	padding: 0;
+
+	font-family: arial;
+	font-family: openSansRegular;
+	font-size: 14px;
+	color: #555;
+}
+
+
+
+
+#main-menu {
+	background: #ffffff;
+	height: 60px;
+	border-bottom: 2px Solid #e1242e;
+	div {
+		max-width: 1200px;
+		margin: 0 auto;
+		width: 100%;
+		div {
+			width: 100%;
+			margin-top: 15px;
+			float: left;
+			.main-menu {
+				float: right;
+				li {
+					float: left;
+					a {
+						font-size: 18px;
+						text-decoration: none;
+						color: #292b2b;
+					}
+					.y-divider {
+						padding: 0 10px;
+						position: relative;
+						top: 2px;
+					}
+				}
+			}
+		}
+	}
+}
+#banner-area {
+	background: #282828 url(../images/banner-img-01.png) no-repeat center center;
+	height: 300px;
+	width: 100%;
+}
+
+
+#main-container {
+	width: 100%;
+	overflow: hidden;
+	.main-inner-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		.left-container {
+			float: left;
+			width: 880px;
+		}
+		.right-container {
+			float: left;
+			width: 300px;
+			.news {
+				background:white;
+				border:1px Solid #ccc;
+				h3 {
+					margin-left: 15px;
+					font-family: OpenSansCondensedBold;
+					font-size: 20px;
+				}
+				ul {
+					margin: 15px;
+					li {
+						border-bottom: 1px solid #ccc;
+						p {
+							font-size: 13px;
+							line-height: 18px;
+							color: #555;
+							strong {
+								display: block;
+								color: #333;
+							}
+							a {
+								display: block;
+							}
+						}
+						&:last-child {
+							border-bottom: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+#map-area {
+	div {
+		max-width: 1200px;
+		margin: 0 auto;
+		width: 100%;
+	}
+}
+#main-content {
+	margin-bottom: 100px;
+	div {
+		/*max-width: 1200px;
+		margin: 0 auto;*/
+		width: 100%;
+		.project-item {
+			margin: 30px 0;
+			background: #f6f6f6;
+			border: 5px solid white;
+			-webkit-box-shadow: 0px 0px 1px rgba(139, 139, 139, 1);
+			-moz-box-shadow:    0px 0px 1px rgba(139, 139, 139, 1);
+			box-shadow:         0px 0px 1px rgba(139, 139, 139, 1);
+			overflow: hidden;
+			height: 140px;
+			width: 840px;
+			ul {
+				li {
+					float: left;
+					.company {
+						margin: 20px;
+					}
+				}
+			}
+		}
+		.project-info {
+			h4 {
+				font-size: 18px;
+			}
+			p {
+				font-size: 14px;
+				line-height: 20px;
+			}
+			a {
+				color: #e1242e;
+				font-size: 16px;
+			}
+		}
+	}
+}
+.paginator {
+	width: 840px !important;
+	margin: 10px 0 !important;
+	overflow: hidden;
+	.results {
+		float: left;
+		width: 15% !important;
+		color: #666;
+		margin-top: 3px !important;
+		img {
+			padding: 0 5px;
+			position: relative;
+			top: 14px;
+		}
+		span {
+			font-family: arial;
+			font-size: 18px;
+			color: #589fc3;
+			position: relative;
+			top: 1px;
+		}
+	}
+	.paginator-2 {
+		border-top: none;
+		float: right;
+		border-bottom: none;
+		overflow: hidden;
+		width: 80% !important;
+		ul {
+			overflow: hidden;
+			width: 350px;
+			margin: 0 auto;
+			float: right;
+			li {
+				float: left;
+				margin: 0px 4px;
+				.lbl-viewpage {
+					margin-left: 5px;
+				}
+				span {
+					margin: 6px 0 0 0;
+					float:left;
+				}
+				a {
+					padding: 5px 10px;
+					display: block;
+					color: #bdbec0;
+					border: 1px Solid #bdbec0;
+					text-decoration: none;
+					font-size: 16px;
+					text-align: center;
+					-webkit-border-radius: 2px;
+					-moz-border-radius: 2px;
+					border-radius: 2px;
+					&.selected {
+						border: 1px Solid #5a9fc3;
+						background-color: #5a9fc3;
+						color: #fff;
+					}
+					&:hover {
+						background: #5a9fc3; 
+						border: 1px Solid #5a9fc3;
+						color: white;
+					}
+				}
+			}
+		}
+	}
+}
+
+a {
+	text-decoration: none;
+	color: #589fc3;
+}
+
+ul {
+margin: 0;
+padding: 0;
+	li {
+		list-style: none;
+	}
+}
+h1 {
+	font-size: 40px;
+	color: #292b2b;
+}
+h4 {
+	margin: 5px 0;
+}
+.round-corners {
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+hr {
+	border: 0;
+	color: #ccc;
+	background-color: #ccc;
+	height: 1px;
+	margin: 20px 0;
+}
+
+table {
+	tr {
+		td {
+			padding: 5px  40px 5px 0px;
+		}
+	}
+}

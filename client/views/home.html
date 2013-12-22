@@ -1,44 +1,204 @@
 <div data-ng-controller="SearchController">
-    <form class="form-inline" role="form">
-        <input class="wide-input form-control" type="text" placeholder="Search">
-        <button class="btn btn-primary" data-toggle="modal" data-ng-click="openAdvSearch()">More</button>
-        <label>{{city}}</label>
-    </form>
-    <form data-ng-hide="!showAdvSearch">
-        <input>
-        <input>
-        <input>
-        <input>
-        <input>
-    </form>
-    <br/>
-    <panel title="Map" class="map-panel">
-        <google-map center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true"></google-map>
-    </panel>
-    <!--<map id="map-canvas"></map>-->
-    <panel id="ad-panel" class="float-right" title="Reklam">
-        <img src="/content/images/caffe.jpg">
-    </panel>
-    <panel id="news-panel" class="float-right" title="Nyheter">
-        <ul>
-            <li data-ng-repeat="news in newsList">
-                {{news.title}}<br/>
-                {{news.date}}<br/>
-                {{news.content}}
-            </li>
-        </ul>
-    </panel>
 
-    <panel title="Results" id="results-panel">
-        <div data-ng-repeat="project in projects" data-ng-click="selectProject(project)" class="result-row">
-            <div>
-                <img class="image-border left" src="{{project.projectPic}}">
-                <div class="left">
-                    <label>Projekt: {{project.name}}</label>
-                    <label>Antal: {{project.apps}}</label>
+    <section id="banner-area">
+        <div>Banner Area</div>
+    </section>
+    <div id="main-container">
+        <div class="main-inner-container">
+            <div class="left-container">
+                <section id="map-area">
+                    <div>
+                        <img src="../content/images/tmp-map.png" alt="" style="margin: 25px 0;" />
+                    </div>
+                </section>
+
+                <section id="main-content">
+                    <div>
+                        <ul>
+                            <li>
+                                <img class="" src="../content/images/tmp-item.png" alt="" />
+                            </li>
+                            <li>
+                                <div class="project-item round-corners">
+                                    <ul>
+                                        <li>
+                                            <a href="project.html"><img src="../content/images/img-project-01.png" alt="" /></a>
+                                        </li>
+                                        <li>
+                                            <table style="margin: 0 20px;">
+                                                <tr>
+                                                    <td colspan="2"><h4>Projektnamn: Alfahanen | JM</h4></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Antal lägenheter: 19</td>
+                                                    <td>Pris: 5 250 600 > 6 1 123 500 SEK</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Antal rum: 4</td>
+                                                    <td>Avgifter 5200 > 6000 SEK/Mån</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Boarea: 86 > 92m²</td>
+                                                    <td>Beräknad inflyttning: Våren 2014</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <img class="company" src="../content/images/company-jm.png" alt="" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="project-item round-corners">
+                                    <ul>
+                                        <li>
+                                            <img src="../content/images/img-project-01.png" alt="" />
+                                        </li>
+                                        <li>
+                                            <table style="margin: 0 20px;">
+                                                <tr>
+                                                    <td colspan="2"><h4>Projektnamn: Alfahanen | JM</h4></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Antal lägenheter: 19</td>
+                                                    <td>Pris: 5 250 600 > 6 1 123 500 SEK</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Antal rum: 4</td>
+                                                    <td>Avgifter 5200 > 6000 SEK/Mån</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Boarea: 86 > 92m²</td>
+                                                    <td>Beräknad inflyttning: Våren 2014</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <img class="company" src="../content/images/company-jm.png" alt="" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="project-item round-corners">
+                                    <ul>
+                                        <li>
+                                            <img src="../content/images/img-project-01.png" alt="" />
+                                        </li>
+                                        <li>
+                                            <table style="margin: 0 20px;">
+                                                <tr>
+                                                    <td colspan="2"><h4>Projektnamn: Alfahanen | JM</h4></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Antal lägenheter: 19</td>
+                                                    <td>Pris: 5 250 600 > 6 1 123 500 SEK</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Antal rum: 4</td>
+                                                    <td>Avgifter 5200 > 6000 SEK/Mån</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Boarea: 86 > 92m²</td>
+                                                    <td>Beräknad inflyttning: Våren 2014</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <img class="company" src="../content/images/company-jm.png" alt="" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="project-item round-corners">
+                                    <ul>
+                                        <li>
+                                            <img src="../content/images/img-project-01.png" alt="" />
+                                        </li>
+                                        <li>
+                                            <table style="margin: 0 20px;">
+                                                <tr>
+                                                    <td colspan="2"><h4>Projektnamn: Alfahanen | JM</h4></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Antal lägenheter: 19</td>
+                                                    <td>Pris: 5 250 600 > 6 1 123 500 SEK</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Antal rum: 4</td>
+                                                    <td>Avgifter 5200 > 6000 SEK/Mån</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Boarea: 86 > 92m²</td>
+                                                    <td>Beräknad inflyttning: Våren 2014</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <img class="company" src="../content/images/company-jm.png" alt="" />
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="paginator">
+                                    <div class="results">
+                                        Sökresultat: <span>28</span>
+                                    </div>
+                                    <div class="paginator-2">
+                                        <ul>
+                                            <li><span class="lbl-viewpage">Visa sida:</span></li>
+                                            <li><a href="#" class="ui-corner-all selected">1</a></li>
+                                            <li><a href="#" class="ui-corner-all">2</a></li>
+                                            <li><a href="#" class="ui-corner-all">3</a></li>
+                                            <li><a href="#" class="ui-corner-all">4</a></li>
+                                            <li><a href="#" class="ui-corner-all">5</a></li>
+                                            <li><a href="#" class="ui-corner-all">6</a></li>
+                                            <!--<li><a href="#" class="ui-corner-all">&lt;</a></li>-->
+                                            <li><a href="#" class="ui-corner-all">&gt;</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            <div class="right-container" style="margin-top:25px;">
+                <div class="news">
+                    <h3>Nya projekt</h3>
+                    <ul>
+                        <li>
+                            <p>
+                                <strong>129 Lägenheter i Hjorthagen</strong>
+                                Byggherre: Svenska Hus
+                                <a href="#">Läs mer...</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>Nyproduktion av 30 lägenheter vid Telefonplan</strong>
+                                Byggherre: Svenska Hus
+                                <a href="#">Läs mer...</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>36 Lägenheter i olika storlekar mitt i stan. Nya Fridhemsparken</strong>
+                                Byggherre: JM
+                                <a href="#">Läs mer...</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>Nyproduktion av 15 lägenheter i Fältöversten, Stockholm</strong>
+                                Byggherre: Veidekke
+                                <a href="#">Läs mer...</a>
+                            </p>
+                        </li>
+                    </ul>
                 </div>
-                <img class="image-border right" src="{{project.companyPic}}">
             </div>
         </div>
-    </panel>
+    </div>
 </div>
