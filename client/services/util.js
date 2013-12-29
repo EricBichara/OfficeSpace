@@ -30,14 +30,18 @@ function Office(){
 
 function Project(){
     this.name = null;
-    this.apps = null;
+    this.builder = null;
+    this.appartments = null;
     this.startDate = null;
     this.endDate = null;
     this.minRooms = null;
     this.maxRooms = null;
     this.minPrice = null;
     this.maxPrice = null;
-    this.rent = null;
+    this.minSize = null;
+    this.maxSize = null;
+    this.minRent = null;
+    this.maxRent = null;
     this.projectPic = null;
     this.companyPic = null;
 }

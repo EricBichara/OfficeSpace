@@ -11,6 +11,15 @@ app.config(function ($routeProvider){//, $rootScope) {
     when('/portal', {
         templateUrl: 'views/portal.html',
         controller: 'PortalController'}).
+    when('/contact', {
+        templateUrl: 'views/contact.html',
+        controller: 'ContactController'}).
+    when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'ContactController'}).
+    when('/info', {
+        templateUrl: 'views/info.html',
+        controller: 'ContactController'}).
     otherwise({ redirectTo: '/' });
 
     /*$rootScope.$on("$routeChangeStart", function ( next, current) {

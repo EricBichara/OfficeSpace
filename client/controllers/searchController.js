@@ -22,12 +22,5 @@ app.controller('SearchController', ['$scope', 'officeService', '$location',
 
         }
 
-        angular.extend($scope, {
-            center: {
-                latitude: 59.314152, // initial map center latitude
-                longitude: 18.07663 // initial map center longitude
-            },
-            markers: [], // an array of markers,
-            zoom: 8 // the zoom level
-        });
+
     }]);

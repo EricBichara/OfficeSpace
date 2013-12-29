@@ -1,4 +1,12 @@
 /**
+ * Created by ericbichara on Dec/28/13.
+ */
+app.controller('ContactController', ['$scope', '$location', 'officeService',
+    function PortalController($scope, $location, officeService){
+
+
+    }]);
+/**
  * Created with JetBrains WebStorm.
  * User: ericbichara
  * Date: Jun/17/13
@@ -49,12 +57,5 @@ app.controller('SearchController', ['$scope', 'officeService', '$location',
 
         }
 
-        angular.extend($scope, {
-            center: {
-                latitude: 59.314152, // initial map center latitude
-                longitude: 18.07663 // initial map center longitude
-            },
-            markers: [], // an array of markers,
-            zoom: 8 // the zoom level
-        });
+
     }]);

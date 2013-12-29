@@ -25,13 +25,13 @@
     <section id="main-menu">
         <div>
             <div>
-                <img src="../content/images/logo-nyprod.png" alt="" />
+                <a href="#/main" id=""><img src="../content/images/logo-nyprod.png" alt="" /></a>
                 <ul class="main-menu">
-                    <li><a href="#" id="">Info</a></li>
+                    <li><a href="#/info" id="">Info</a></li>
                     <li><span class="y-divider">|</span></li>
-                    <li><a href="#" id="">Kontakt</a></li>
+                    <li><a href="#/contact" id="">Kontakt</a></li>
                     <li><span class="y-divider">|</span></li>
-                    <li><a href="#" id="">Om Oss</a></li>
+                    <li><a href="#/about" id="">Om Oss</a></li>
                 </ul>
             </div>
         </div>
@@ -49,11 +49,12 @@
     </footer>
 
     <!--Vendor Scripts-->
+    <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKRDvH-yQ89IN9tuv51mF8vAgwavJRcYY&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKRDvH-yQ89IN9tuv51mF8vAgwavJRcYY&sensor=false" type="text/javascript"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <script src="lib/angular-google-maps.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
 
     <!--App Scripts-->
     <script src="app.js"></script>

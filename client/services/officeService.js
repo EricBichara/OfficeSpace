@@ -42,16 +42,20 @@ app.service('officeService', function ($http) {
         for(var i = 0; i<10; i++){
             var project = new Project();
             project.name = "Project" + i;
-            project.apps = i * 100;
+            project.builder = "JM";
+            project.appartments = i * 100;
             project.startDate = '2014-05-0' + i;
             project.endDate = '2014-09-0' + i;
-            project.minPrice = i*1 + " Mkr";
-            project.maxPrice = i*2 + " Mkr";
+            project.minPrice = i*1;
+            project.maxPrice = i*2;
             project.minRooms = 1;
             project.maxRooms = 5;
-            project.rent = "3500 kr";
-            project.companyPic = "content/images/logo.gif";
-            project.projectPic = "content/images/app.jpg";
+            project.minSize = 35;
+            project.maxSize = 83;
+            project.minRent = "3500";
+            project.maxRent = "4500";
+            project.companyPic = "/content/images/company-jm.png";
+            project.projectPic = "/content/images/img-project-01.png";
 
             tempProjects.push(project);
         }
