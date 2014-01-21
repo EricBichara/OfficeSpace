@@ -28,51 +28,49 @@ body {
 }
 
 /* line 30, ../scss/main.scss */
-google-map {
+.angular-google-map-container {
   height: 400px;
-  width: 790px;
-  display: block;
 }
 
-/* line 36, ../scss/main.scss */
+/* line 34, ../scss/main.scss */
 .map-panel {
   height: 433px;
   width: 796px;
   float: left;
 }
 
-/* line 42, ../scss/main.scss */
+/* line 40, ../scss/main.scss */
 .float-right {
   float: right;
   height: 200px;
   width: 150px;
 }
 
-/* line 48, ../scss/main.scss */
+/* line 46, ../scss/main.scss */
 #results-panel {
   position: absolute;
   top: 570px;
   width: 797px;
 }
 
-/* line 54, ../scss/main.scss */
+/* line 52, ../scss/main.scss */
 .result-row {
   height: 65px;
   padding: 5px;
   border-bottom: 2px #006dcc solid;
 }
 
-/* line 60, ../scss/main.scss */
+/* line 58, ../scss/main.scss */
 .result-row:hover, #news-panel li:hover {
   background-color: #d1eafe;
 }
 
-/* line 64, ../scss/main.scss */
+/* line 62, ../scss/main.scss */
 .image-border {
   border: 1px solid gray;
 }
 
-/* line 68, ../scss/main.scss */
+/* line 66, ../scss/main.scss */
 #news-panel ul {
   height: 167px;
   overflow-y: auto;
@@ -80,28 +78,28 @@ google-map {
   padding: 5px;
 }
 
-/* line 75, ../scss/main.scss */
+/* line 73, ../scss/main.scss */
 #news-panel li {
   border-bottom: 2px #006dcc solid;
 }
 
-/* line 79, ../scss/main.scss */
+/* line 77, ../scss/main.scss */
 #ad-panel img {
   height: 167px;
   width: 100%;
 }
 
-/* line 84, ../scss/main.scss */
+/* line 82, ../scss/main.scss */
 .wide-input {
   width: 200px;
 }
 
-/* line 88, ../scss/main.scss */
+/* line 86, ../scss/main.scss */
 .left {
   float: left;
 }
 
-/* line 92, ../scss/main.scss */
+/* line 90, ../scss/main.scss */
 .right {
   float: right;
 }

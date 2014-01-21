@@ -40,7 +40,7 @@ module.exports = function(grunt) {
                 livereload: 35729
             },
             scripts:{
-                files: ['**/*.js', '**/*.scss', '!**/node_modules/**'],
+                files: ['**/*.js', '**/*.scss', '**/*.html', '!**/node_modules/**'],
                 tasks: ['default']
             }
         },

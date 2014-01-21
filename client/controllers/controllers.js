@@ -2,7 +2,7 @@
  * Created by ericbichara on Dec/28/13.
  */
 app.controller('ContactController', ['$scope', '$location', 'officeService',
-    function PortalController($scope, $location, officeService){
+    function ContactController($scope, $location, officeService){
 
 
     }]);
@@ -57,5 +57,12 @@ app.controller('SearchController', ['$scope', 'officeService', '$location',
 
         }
 
+        $scope.map = {
+            center: {
+                latitude: 45,
+                longitude: -73
+            },
+            zoom: 8
+        };
 
     }]);
