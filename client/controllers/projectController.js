@@ -3,6 +3,5 @@
  */
 app.controller('ProjectController', ['$scope', '$location', 'officeService', '$routeParams',
     function ProjectController($scope, $location, officeService, $routeParams){
-        $scope.project = $routeParams.id;
-
+        $scope.project = officeService.getProjectById($routeParams.id);
     }]);

@@ -1,10 +1,53 @@
 /**
+ * Created by ericbichara on Mar/06/14.
+ */
+/**
+ * Created by ericbichara on Dec/28/13.
+ */
+app.controller('AdminController', ['$scope', '$location', 'officeService',
+    function AdminController($scope, $location, officeService){
+
+        $scope.projects = officeService.getProjects();
+
+        $scope.editProject = function(projectId){
+            $location.path('/editProject/' + projectId);
+        }
+
+        $scope.viewProject = function(projectId){
+            $location.path('/project/' + projectId);
+        }
+
+        $scope.createProject = function(){
+            $location.path('/editProject/');
+        }
+
+        $scope.deleteProject = function(projectId){
+            officeService.deleteProject(projectId);
+        }
+    }]);
+/**
  * Created by ericbichara on Dec/28/13.
  */
 app.controller('ContactController', ['$scope', '$location', 'officeService',
     function ContactController($scope, $location, officeService){
 
 
+    }]);
+app.controller('EditProjectController', ['$scope', '$location', 'officeService', '$routeParams',
+    function AdminController($scope, $location, officeService, $routeParams){
+        if(!$routeParams.id){
+            $scope.project = officeService.createNewProject();
+        }else{
+            $scope.project = officeService.getProjectById($routeParams.id);
+        }
+
+        $scope.saveProject = function(){
+            officeService.saveProject($scope.project);
+        }
+
+        $scope.cancel = function(){
+            $location.path('/admin/');
+        }
     }]);
 /**
  * Created with JetBrains WebStorm.
@@ -30,8 +73,7 @@ app.controller('PortalController', ['$scope', '$location', 'officeService',
  */
 app.controller('ProjectController', ['$scope', '$location', 'officeService', '$routeParams',
     function ProjectController($scope, $location, officeService, $routeParams){
-        $scope.project = $routeParams.id;
-
+        $scope.project = officeService.getProjectById($routeParams.id);
     }]);
 /**
  * Created with JetBrains WebStorm.
@@ -52,9 +94,8 @@ app.controller('SearchController', ['$scope', 'officeService', '$location',
             $scope.showAdvSearch = !$scope.showAdvSearch;
         }
 
-        $scope.selectProject = function(project){
-            $location.path('project/' + project.name);
-
+        $scope.viewProject = function(projectId){
+            $location.path('/project/' + projectId);
         }
 
         $scope.map = {

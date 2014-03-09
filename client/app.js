@@ -8,7 +8,13 @@ app.config(function ($routeProvider){//, $rootScope) {
     when('/project/:id',{
         templateUrl: 'views/project.html',
         controller: 'ProjectController'}).
-    when('/portal', {
+    when('/editProject/:id',{
+        templateUrl: 'views/editProject.html',
+        controller: 'EditProjectController'}).
+    when('/editProject/',{
+        templateUrl: 'views/editProject.html',
+        controller: 'EditProjectController'}).
+        when('/portal', {
         templateUrl: 'views/portal.html',
         controller: 'PortalController'}).
     when('/contact', {
@@ -20,6 +26,9 @@ app.config(function ($routeProvider){//, $rootScope) {
     when('/info', {
         templateUrl: 'views/info.html',
         controller: 'ContactController'}).
+    when('/admin', {
+        templateUrl: 'views/admin.html',
+        controller: 'AdminController'}).
     otherwise({ redirectTo: '/' });
 
     /*$rootScope.$on("$routeChangeStart", function ( next, current) {

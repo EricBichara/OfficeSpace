@@ -17,9 +17,8 @@ app.controller('SearchController', ['$scope', 'officeService', '$location',
             $scope.showAdvSearch = !$scope.showAdvSearch;
         }
 
-        $scope.selectProject = function(project){
-            $location.path('project/' + project.name);
-
+        $scope.viewProject = function(projectId){
+            $location.path('/project/' + projectId);
         }
 
         $scope.map = {

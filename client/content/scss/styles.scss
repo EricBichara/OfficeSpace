@@ -19,7 +19,7 @@ body {
 
 #main-menu {
 	background: #ffffff;
-	height: 60px;
+	height: 50px;
 	border-bottom: 2px Solid #e1242e;
 	div {
 		max-width: 1200px;
@@ -27,7 +27,7 @@ body {
 		width: 100%;
 		div {
 			width: 100%;
-			margin-top: 15px;
+			margin-top: 10px;
 			float: left;
 			.main-menu {
 				float: right;
@@ -130,6 +130,9 @@ body {
 				}
 			}
 		}
+        .project-item:hover{
+          background: #e0e0e0;
+        }
 		.project-info {
 			h4 {
 				font-size: 18px;
@@ -266,4 +269,8 @@ table {
   -moz-box-shadow: 0px 0px 1px #8b8b8b;
   box-shadow: 0px 0px 1px #8b8b8b;
   overflow: hidden;
+}
+
+.small-image{
+  height: 50px;
 }

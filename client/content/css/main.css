@@ -103,3 +103,8 @@ body {
 .right {
   float: right;
 }
+
+/* line 94, ../scss/main.scss */
+.small-image {
+  height: 50px;
+}

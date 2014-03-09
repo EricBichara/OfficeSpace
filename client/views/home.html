@@ -14,10 +14,10 @@
                     <div>
                         <ul>
                             <li data-ng-repeat="project in projects">
-                                <div class="project-item round-corners">
+                                <div class="project-item round-corners" data-ng-click="viewProject(project.id)">
                                     <ul>
                                         <li>
-                                            <a href="project.html"><img data-ng-src="{{project.projectPic}}" alt="" /></a>
+                                            <img data-ng-src="{{project.projectPic}}" alt="" />
                                         </li>
                                         <li>
                                             <table style="margin: 0 20px;">

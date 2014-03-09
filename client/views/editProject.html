@@ -13,20 +13,54 @@
                         <li>
                             <table>
                                 <tr>
-                                    <td colspan="2"><h4>Projektnamn: {{project.name}} | {{project.builder}}</h4></td>
+                                    <td><h4>Projektnamn:</h4></td>
+                                    <td><input type="text" data-ng-model="project.name"></td>
                                 </tr>
                                 <tr>
-                                    <td>Antal lägenheter: {{project.appartments}}</td>
-                                    <td>Pris: {{project.minPrice}} - {{project.maxPrice}} Mkr</td>
+                                    <td><h4>Projekt Byggare:</h4></td>
+                                    <td><input type="text" data-ng-model="project.builder"></td>
                                 </tr>
                                 <tr>
-                                    <td>Antal rum: {{project.minRooms}} - {{project.maxRooms}}</td>
-                                    <td>Avgifter: {{project.minRent}} - {{project.maxRent}}</td>
+                                    <td><h4>Antal lägenheter:</h4></td>
+                                    <td><input type="text" data-ng-model="project.appartments"></td>
                                 </tr>
                                 <tr>
-                                    <td>Boarea: {{project.minSize}} - {{project.maxSize}}m²</td>
-                                    <td>Beräknad inflyttning: {{project.endDate}}</td>
+                                    <td><h4>Min Pris:</h4></td>
+                                    <td><input type="text" data-ng-model="project.minPrice"></td>
                                 </tr>
+                                <tr>
+                                    <td><h4>Max Pris:</h4></td>
+                                    <td><input type="text" data-ng-model="project.maxPrice"></td>
+                                </tr>
+                                <tr>
+                                    <td><h4>Min Antal Rum:</h4></td>
+                                    <td><input type="text" data-ng-model="project.minRooms"></td>
+                                </tr>
+                                <tr>
+                                    <td><h4>Max Antal Rum:</h4></td>
+                                    <td><input type="text" data-ng-model="project.maxRooms"></td>
+                                </tr>
+                                <tr>
+                                    <td><h4>Min Hyra:</h4></td>
+                                    <td><input type="text" data-ng-model="project.minRent"></td>
+                                </tr>
+                                <tr>
+                                    <td><h4>Max Hyra:</h4></td>
+                                    <td><input type="text" data-ng-model="project.maxRent"></td>
+                                </tr>
+                                <tr>
+                                    <td><h4>Min Boarea:</h4></td>
+                                    <td><input type="text" data-ng-model="project.minSize"></td>
+                                </tr>
+                                <tr>
+                                    <td><h4>Max Boarea:</h4></td>
+                                    <td><input type="text" data-ng-model="project.maxSize"></td>
+                                </tr>
+                                <tr>
+                                    <td><h4>Beräknad inflyttning:</h4></td>
+                                    <td><input type="text" data-ng-model="project.endDate"></td>
+                                </tr>
+
                             </table>
                         </li>
                     </ul>
@@ -34,15 +68,13 @@
 
                     <div class="project-info">
                         <hr>
-                        <h4>{{project.descriptionTitle}}</h4>
-                        <p>
-                            {{project.description}}
-                        </p>
+                        <h4>Beskrivningstitel:</h4>
+                        <input type="text" data-ng-model="project.descriptionTitle">
+                        <h4>Beskrivning:</h4>
+                        <textarea rows="6" cols="100" data-ng-model="project.description"></textarea>
                         <hr>
                         <h4>Närområde</h4>
-                        <p>
-                            {{project.areaInfo}}
-                        </p>
+                        <textarea rows="6" cols="100" data-ng-model="project.areaInfo"></textarea>
                     </div>
                     <hr>
                     <div class="project-info">
@@ -62,7 +94,8 @@
                             </tr>
                         </table>
                     </div>
-
+                    <button data-ng-click="cancel()">Cancel</button>
+                    <button data-ng-click="saveProject()">Spara</button>
                 </section>
             </div>
             <div class="right-container" style="margin-top:25px;">

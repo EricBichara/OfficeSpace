@@ -44,6 +44,10 @@ function Project(){
     this.maxRent = null;
     this.projectPic = null;
     this.companyPic = null;
+    this.descriptionTitle = null;
+    this.description = null;
+    this.areaInfo = null;
+    this.contactList = null;
 }
 
 function News(){
@@ -55,5 +59,6 @@ function News(){
 
 function Contact(){
     this.name = "";
-    this.title = "";
+    this.telephone = "";
+    this.email = "";
 }
