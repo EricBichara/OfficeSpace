@@ -32,7 +32,6 @@ app.controller('ApartmentPopupController', ['$scope', '$location', 'officeServic
 app.controller('ContactController', ['$scope', '$location', 'officeService',
     function ContactController($scope, $location, officeService){
 
-
     }]);
 /**
  * Created by ericbichara on Mar/29/14.
