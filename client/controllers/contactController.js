@@ -4,5 +4,4 @@
 app.controller('ContactController', ['$scope', '$location', 'officeService',
     function ContactController($scope, $location, officeService){
 
-
     }]);
