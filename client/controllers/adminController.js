@@ -4,24 +4,18 @@
 /**
  * Created by ericbichara on Dec/28/13.
  */
-app.controller('AdminController', ['$scope', '$location', 'officeService',
-    function AdminController($scope, $location, officeService){
+app.controller('AdminController', ['$scope', '$location',
+    function AdminController($scope, $location){
 
-        $scope.projects = officeService.getProjects();
+        $scope.editProjects = function(){
+            $location.path('/editProjectsList/');
+        };
 
-        $scope.editProject = function(projectId){
-            $location.path('/editProject/' + projectId);
-        }
+        $scope.editNews = function(){
+            $location.path('/editNews/');
+        };
 
-        $scope.viewProject = function(projectId){
-            $location.path('/project/' + projectId);
-        }
-
-        $scope.createProject = function(){
-            $location.path('/editProject/');
-        }
-
-        $scope.deleteProject = function(projectId){
-            officeService.deleteProject(projectId);
-        }
+        $scope.editUsers = function(){
+            $location.path('/editUsers/');
+        };
     }]);

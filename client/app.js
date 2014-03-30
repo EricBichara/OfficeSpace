@@ -1,6 +1,6 @@
-var app = angular.module('officeSpace', ['ngRoute', "google-maps"]);
+var app = angular.module('officeSpace', ['ngRoute', "google-maps", 'ui.bootstrap']);
 
-app.config(function ($routeProvider){//, $rootScope) {
+app.config(function ($routeProvider){
 
     $routeProvider.
     when('/', {
@@ -14,7 +14,7 @@ app.config(function ($routeProvider){//, $rootScope) {
     when('/editProject/',{
         templateUrl: 'views/editProject.html',
         controller: 'EditProjectController'}).
-        when('/portal', {
+    when('/portal', {
         templateUrl: 'views/portal.html',
         controller: 'PortalController'}).
     when('/contact', {
@@ -29,13 +29,14 @@ app.config(function ($routeProvider){//, $rootScope) {
     when('/admin', {
         templateUrl: 'views/admin.html',
         controller: 'AdminController'}).
+    when('/editProjectsList',{
+        templateUrl: 'views/editProjectsList.html',
+        controller: 'EditProjectsListController'}).
+    when('/editNews',{
+        templateUrl: 'views/editNews.html',
+        controller: 'EditNewsController'}).
+    when('/editUsers',{
+        templateUrl: 'views/editUsers.html',
+        controller: 'EditUsersController'}).
     otherwise({ redirectTo: '/' });
-
-    /*$rootScope.$on("$routeChangeStart", function ( next, current) {
-
-        if (false){ //check if user has already chosen a city
-            $location.path('/');
-        }
-
-    });*/
 });

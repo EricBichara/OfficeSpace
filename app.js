@@ -15,17 +15,37 @@ app.set('port', process.env.PORT || 5000);
 app.set('dbString',
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
-    'mongodb://localhost/test1');
+    //'mongodb://ericbichara:bananaStand90@dharma.mongohq.com:10021/app16402159' );
+    'mongodb://localhost/test');
 
 app.use(express.compress());
 app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.urlencoded()); // to support URL-encoded bodies
 
-/*mongoose.connect(app.get('dbString'));*/
+/** MongoDB **/
+mongoose.connect(app.get('dbString'));
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error'));
+db.once('open', function callback(){
+    console.log('db opened');
+});
 
 /** Services **/
-app.get('/getOffices', dbManager.fetchOffices);
-app.post('/createOffice',dbManager.createOffice);
-app.get('/getOffice', dbManager.fetchOffice);
+app.get('/getProjects', dbManager.getProjects);
+app.post('/updateProject', dbManager.updateProject);
+app.post('/deleteProjectById', dbManager.deleteProjectById);
+
+//app.get('getNews', dbManager.getNews);
+//app.post('/updateNews', dbManager.updateNews);
+//app.post('deleteNews', dbManager.deleteNews);
+
+//app.get('getUsers', dbManager.getUsers);
+app.post('getUser', dbManager.updateUser);
+app.post('deleteUser', dbManager.deleteUser);
+
+
+//app.post('/updateProject', dbManager.updateProject);
 
 
 /** Create Server **/

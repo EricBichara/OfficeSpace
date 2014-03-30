@@ -10,7 +10,13 @@ app.controller('SearchController', ['$scope', 'officeService', '$location',
     function PortalController($scope, officeService, $location){
         $scope.city = officeService.city;
         $scope.showAdvSearch = false;
-        $scope.projects = officeService.getProjects();
+
+        $scope.projects = null;
+        $scope.$watch(function(){return officeService.projects;}, function(data){
+            $scope.projects = data;
+        })
+        officeService.getProjects();
+
         $scope.newsList = officeService.getNews();
 
         $scope.openAdvSearch = function(){

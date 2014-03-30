@@ -1,8 +1,14 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css");
 /****************************************************
 *  Styles for project X
 *
 ****************************************************/
-/* line 6, ../scss/styles.scss */
+/* line 7, ../scss/styles.scss */
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer;
+}
+
+/* line 8, ../scss/styles.scss */
 body {
   background: #f9f9f9 url(../images/bg-noise.png) repeat top left;
   margin: 0;
@@ -13,123 +19,123 @@ body {
   color: #555;
 }
 
-/* line 20, ../scss/styles.scss */
+/* line 19, ../scss/styles.scss */
 #main-menu {
   background: #ffffff;
   height: 50px;
   border-bottom: 2px Solid #e1242e;
 }
-/* line 24, ../scss/styles.scss */
+/* line 23, ../scss/styles.scss */
 #main-menu div {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 }
-/* line 28, ../scss/styles.scss */
+/* line 27, ../scss/styles.scss */
 #main-menu div div {
   width: 100%;
   margin-top: 10px;
   float: left;
 }
-/* line 32, ../scss/styles.scss */
+/* line 31, ../scss/styles.scss */
 #main-menu div div .main-menu {
   float: right;
 }
-/* line 34, ../scss/styles.scss */
+/* line 33, ../scss/styles.scss */
 #main-menu div div .main-menu li {
   float: left;
 }
-/* line 36, ../scss/styles.scss */
+/* line 35, ../scss/styles.scss */
 #main-menu div div .main-menu li a {
   font-size: 18px;
   text-decoration: none;
   color: #292b2b;
 }
-/* line 41, ../scss/styles.scss */
+/* line 40, ../scss/styles.scss */
 #main-menu div div .main-menu li .y-divider {
   padding: 0 10px;
   position: relative;
   top: 2px;
 }
 
-/* line 51, ../scss/styles.scss */
+/* line 50, ../scss/styles.scss */
 #banner-area {
   background: #282828 url(../images/banner-img-01.png) no-repeat center center;
   height: 300px;
   width: 100%;
 }
 
-/* line 58, ../scss/styles.scss */
+/* line 57, ../scss/styles.scss */
 #main-container {
   width: 100%;
   overflow: hidden;
 }
-/* line 61, ../scss/styles.scss */
+/* line 60, ../scss/styles.scss */
 #main-container .main-inner-container {
   max-width: 1200px;
   margin: 0 auto;
 }
-/* line 64, ../scss/styles.scss */
+/* line 63, ../scss/styles.scss */
 #main-container .main-inner-container .left-container {
   float: left;
   width: 880px;
 }
-/* line 68, ../scss/styles.scss */
+/* line 67, ../scss/styles.scss */
 #main-container .main-inner-container .right-container {
   float: left;
   width: 300px;
   margin: 15px 0px;
 }
-/* line 72, ../scss/styles.scss */
+/* line 71, ../scss/styles.scss */
 #main-container .main-inner-container .right-container .news {
   background: white;
   border: 1px Solid #ccc;
 }
-/* line 75, ../scss/styles.scss */
+/* line 74, ../scss/styles.scss */
 #main-container .main-inner-container .right-container .news h3 {
   margin-left: 15px;
   font-family: OpenSansCondensedBold;
   font-size: 20px;
 }
-/* line 80, ../scss/styles.scss */
+/* line 79, ../scss/styles.scss */
 #main-container .main-inner-container .right-container .news ul {
   margin: 15px;
 }
-/* line 82, ../scss/styles.scss */
+/* line 81, ../scss/styles.scss */
 #main-container .main-inner-container .right-container .news ul li {
   border-bottom: 1px solid #ccc;
 }
-/* line 84, ../scss/styles.scss */
+/* line 83, ../scss/styles.scss */
 #main-container .main-inner-container .right-container .news ul li p {
   font-size: 13px;
   line-height: 18px;
   color: #555;
 }
-/* line 88, ../scss/styles.scss */
+/* line 87, ../scss/styles.scss */
 #main-container .main-inner-container .right-container .news ul li p strong {
   display: block;
   color: #333;
 }
-/* line 92, ../scss/styles.scss */
+/* line 91, ../scss/styles.scss */
 #main-container .main-inner-container .right-container .news ul li p a {
   display: block;
 }
-/* line 96, ../scss/styles.scss */
+/* line 95, ../scss/styles.scss */
 #main-container .main-inner-container .right-container .news ul li:last-child {
   border-bottom: none;
 }
 
-/* line 108, ../scss/styles.scss */
+/* line 107, ../scss/styles.scss */
 #main-content {
   margin-bottom: 100px;
 }
-/* line 110, ../scss/styles.scss */
+/* line 109, ../scss/styles.scss */
 #main-content div {
   /*max-width: 1200px;
   margin: 0 auto;*/
   width: 100%;
 }
-/* line 114, ../scss/styles.scss */
+/* line 113, ../scss/styles.scss */
 #main-content div .project-item {
   margin: 15px 0;
   background: #f6f6f6;
@@ -141,53 +147,53 @@ body {
   height: 140px;
   width: 840px;
 }
-/* line 125, ../scss/styles.scss */
+/* line 124, ../scss/styles.scss */
 #main-content div .project-item ul li {
   float: left;
 }
-/* line 127, ../scss/styles.scss */
+/* line 126, ../scss/styles.scss */
 #main-content div .project-item ul li .company {
   margin: 20px;
 }
-/* line 133, ../scss/styles.scss */
+/* line 132, ../scss/styles.scss */
 #main-content div .project-item:hover {
   background: #e0e0e0;
 }
-/* line 137, ../scss/styles.scss */
+/* line 136, ../scss/styles.scss */
 #main-content div .project-info h4 {
   font-size: 18px;
 }
-/* line 140, ../scss/styles.scss */
+/* line 139, ../scss/styles.scss */
 #main-content div .project-info p {
   font-size: 14px;
   line-height: 20px;
 }
-/* line 144, ../scss/styles.scss */
+/* line 143, ../scss/styles.scss */
 #main-content div .project-info a {
   color: #e1242e;
   font-size: 16px;
 }
 
-/* line 151, ../scss/styles.scss */
+/* line 150, ../scss/styles.scss */
 .paginator {
   width: 840px !important;
   margin: 10px 0 !important;
   overflow: hidden;
 }
-/* line 155, ../scss/styles.scss */
+/* line 154, ../scss/styles.scss */
 .paginator .results {
   float: left;
   width: 15% !important;
   color: #666;
   margin-top: 3px !important;
 }
-/* line 160, ../scss/styles.scss */
+/* line 159, ../scss/styles.scss */
 .paginator .results img {
   padding: 0 5px;
   position: relative;
   top: 14px;
 }
-/* line 165, ../scss/styles.scss */
+/* line 164, ../scss/styles.scss */
 .paginator .results span {
   font-family: arial;
   font-size: 18px;
@@ -195,7 +201,7 @@ body {
   position: relative;
   top: 1px;
 }
-/* line 173, ../scss/styles.scss */
+/* line 172, ../scss/styles.scss */
 .paginator .paginator-2 {
   border-top: none;
   float: right;
@@ -203,28 +209,28 @@ body {
   overflow: hidden;
   width: 80% !important;
 }
-/* line 179, ../scss/styles.scss */
+/* line 178, ../scss/styles.scss */
 .paginator .paginator-2 ul {
   overflow: hidden;
   width: 350px;
   margin: 0 auto;
   float: right;
 }
-/* line 184, ../scss/styles.scss */
+/* line 183, ../scss/styles.scss */
 .paginator .paginator-2 ul li {
   float: left;
   margin: 0px 4px;
 }
-/* line 187, ../scss/styles.scss */
+/* line 186, ../scss/styles.scss */
 .paginator .paginator-2 ul li .lbl-viewpage {
   margin-left: 5px;
 }
-/* line 190, ../scss/styles.scss */
+/* line 189, ../scss/styles.scss */
 .paginator .paginator-2 ul li span {
   margin: 6px 0 0 0;
   float: left;
 }
-/* line 194, ../scss/styles.scss */
+/* line 193, ../scss/styles.scss */
 .paginator .paginator-2 ul li a {
   padding: 5px 10px;
   display: block;
@@ -237,54 +243,54 @@ body {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 205, ../scss/styles.scss */
+/* line 204, ../scss/styles.scss */
 .paginator .paginator-2 ul li a.selected {
   border: 1px Solid #5a9fc3;
   background-color: #5a9fc3;
   color: #fff;
 }
-/* line 210, ../scss/styles.scss */
+/* line 209, ../scss/styles.scss */
 .paginator .paginator-2 ul li a:hover {
   background: #5a9fc3;
   border: 1px Solid #5a9fc3;
   color: white;
 }
 
-/* line 221, ../scss/styles.scss */
+/* line 220, ../scss/styles.scss */
 a {
   text-decoration: none;
   color: #589fc3;
 }
 
-/* line 226, ../scss/styles.scss */
+/* line 225, ../scss/styles.scss */
 ul {
   margin: 0;
   padding: 0;
 }
-/* line 229, ../scss/styles.scss */
+/* line 228, ../scss/styles.scss */
 ul li {
   list-style: none;
 }
 
-/* line 233, ../scss/styles.scss */
+/* line 232, ../scss/styles.scss */
 h1 {
   font-size: 40px;
   color: #292b2b;
 }
 
-/* line 237, ../scss/styles.scss */
+/* line 236, ../scss/styles.scss */
 h4 {
   margin: 5px 0;
 }
 
-/* line 240, ../scss/styles.scss */
+/* line 239, ../scss/styles.scss */
 .round-corners {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
 
-/* line 245, ../scss/styles.scss */
+/* line 244, ../scss/styles.scss */
 hr {
   border: 0;
   color: #ccc;
@@ -293,12 +299,12 @@ hr {
   margin: 20px 0;
 }
 
-/* line 255, ../scss/styles.scss */
+/* line 254, ../scss/styles.scss */
 table tr td {
   padding: 5px 40px 5px 0px;
 }
 
-/* line 261, ../scss/styles.scss */
+/* line 260, ../scss/styles.scss */
 .angular-google-map-container {
   height: 400px;
   width: 840px;
@@ -310,7 +316,7 @@ table tr td {
   overflow: hidden;
 }
 
-/* line 274, ../scss/styles.scss */
+/* line 273, ../scss/styles.scss */
 .small-image {
   height: 50px;
 }

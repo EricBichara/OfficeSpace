@@ -1,22 +1,7 @@
 <div id="main-container">
     <div class="main-inner-container">
-<button data-ng-click="createProject()">Create Project</button>
-<table>
-    <tbody>
-        <tr data-ng-repeat="project in projects">
-            <td><img class="small-image" src="{{project.projectPic}}"></td>
-            <td>
-                <div>
-                    <div>{{project.id}}</div>
-                    <div>{{project.name}}</div>
-                    <div>{{project.builder}}</div>
-                </div>
-            </td>
-            <td><button data-ng-click="editProject(project.id)">Edit</button></td>
-            <td><button data-ng-click="viewProject(project.id)">View</button></td>
-            <td><button data-ng-click="deleteProject(project.id)">Delete</button></td>
-        </tr>
-    </tbody>
-</table>
-</div>
+        <button data-ng-click="editProjects()">Edit Projects</button>
+        <button data-ng-click="editNews()">Edit News</button>
+        <button data-ng-click="editUsers()">Edit Users</button>
     </div>
+</div>

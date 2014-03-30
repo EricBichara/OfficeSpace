@@ -30,46 +30,47 @@
         #watch this scope(Parent to all WindowModels), these updates reflect expression / Key changes
         #thus they need to be pushed to all the children models so that they are bound to the correct objects / keys
         watch: (scope, name, nameKey) =>
-            scope.$watch(name, (newValue, oldValue) =>
+            scope.$watch name, (newValue, oldValue) =>
                 if (newValue != oldValue)
                     @[nameKey] = if typeof newValue == 'function' then newValue() else newValue
-                    for model in @windows
-                        do(model) =>
-                            model.scope[name] = if @[nameKey] == 'self' then model else model[@[nameKey]]
-            , true)
+                    _.each @windows, (model) =>
+                        model.scope[name] = if @[nameKey] == 'self' then model else model[@[nameKey]]
+            , true
 
         watchModels: (scope) =>
-            scope.$watch('models', (newValue, oldValue) =>
+            scope.$watch 'models', (newValue, oldValue) =>
                 #check to make sure that the newValue Array is really a set of new objects
                 if @didModelsChange(newValue, oldValue)
-                    @bigGulp.handleLargeArray(@windows, (model) =>
-                        model.destroy()
-                    , (()->), () => #handle done callBack
-                        # delete @windows
-                        @windows = []
-                        @windowsIndex = 0
-                        @createChildScopesWindows()
-                    )
-
-            , true)
+                    @destroy()
+                    @createChildScopesWindows()
 
         watchDestroy: (scope)=>
-            scope.$on("$destroy", =>
-                @bigGulp.handleLargeArray(@windows, (model) =>
-                    model.destroy()
-                , (()->), () => #handle done callBack
-                    delete @windows
-                    @windows = []
-                    @windowsIndex = 0
-                )
-            )
+            scope.$on "$destroy", =>
+                @destroy()
+
+        destroy:() =>
+            _.each @windows, (model) =>
+                model.destroy()
+            delete @windows
+            @windows = []
+            @windowsIndex = 0
 
         watchOurScope: (scope) =>
-            for name in @scopePropNames
-                do(name) =>
-                    nameKey = name + 'Key'
-                    @[nameKey] = if typeof scope[name] == 'function' then scope[name]() else scope[name]
-                    @watch(scope, name, nameKey)
+            _.each @scopePropNames, (name) =>
+                nameKey = name + 'Key'
+                @[nameKey] = if typeof scope[name] == 'function' then scope[name]() else scope[name]
+                @watch(scope, name, nameKey)
+
+        onMarkerModelsReady: (scope) =>
+            @destroy()
+            @models = scope.models
+            if(@firstTime)
+                @watchDestroy scope
+            @setContentKeys scope.models #only setting content keys once per model array
+            @bigGulp.handleLargeArray scope.markerModels, (mm) =>
+                @createWindow mm.model, mm.gMarker, @gMap
+            , (()->), () => #handle done callBack
+                @firstTime = false
 
         createChildScopesWindows: =>
             ###
@@ -82,15 +83,15 @@
             @isIconVisibleOnClick = true
             if angular.isDefined(@linked.attrs.isiconvisibleonclick)
                 @isIconVisibleOnClick = @linked.scope.isIconVisibleOnClick
-            gMap = @linked.ctrls[0].getMap()
+            @gMap = @linked.ctrls[0].getMap()
             markersScope = if @linked.ctrls.length > 1 and @linked.ctrls[1]? then @linked.ctrls[1].getMarkersScope() else undefined
 
             modelsNotDefined = angular.isUndefined(@linked.scope.models)
 
-            if(modelsNotDefined and (markersScope == undefined or (markersScope.markerModels == undefined and markersScope.models == undefined)))
+            if modelsNotDefined and (markersScope == undefined or (markersScope.markerModels == undefined and markersScope.models == undefined))
                 @$log.info("No models to create windows from! Need direct models or models derrived from markers!")
                 return
-            if gMap?
+            if @gMap?
                 #at the very least we need a Map, the marker is optional as we can create Windows without markers
                 if @linked.scope.models?
                     #we are creating windows with no markers
@@ -100,22 +101,15 @@
                         @watchDestroy(@linked.scope)
                     @setContentKeys(@linked.scope.models) #only setting content keys once per model array
                     @bigGulp.handleLargeArray(@linked.scope.models, (model) =>
-                        @createWindow(model, undefined, gMap)
+                        @createWindow(model, undefined, @gMap)
                     , (()->), () => #handle done callBack
                         @firstTime = false
                     )
                 else
                     #creating windows with parent markers
-                    @models = markersScope.models
-                    if(@firstTime)
-                        @watchModels(markersScope)
-                        @watchDestroy(markersScope)
-                    @setContentKeys(markersScope.models) #only setting content keys once per model array
-                    @bigGulp.handleLargeArray(markersScope.markerModels, (mm) =>
-                        @createWindow(mm.model, mm.gMarker, gMap)
-                    , (()->), () => #handle done callBack
-                        @firstTime = false
-                    )
+                    markersScope.onMarkerModelsReady = @onMarkerModelsReady
+                    @onMarkerModelsReady(markersScope) if markersScope.isMarkerModelsReady
+
 
 
         setContentKeys: (models)=>
@@ -142,10 +136,8 @@
             , true)
             parsedContent = @interpolateContent(@linked.element.html(), model)
             opts = @createWindowOptions(gMarker, childScope, parsedContent, @DEFAULTS)
-            @windows.push(
-                    new directives.api.models.child.WindowChildModel(childScope, opts, @isIconVisibleOnClick, gMap, gMarker,
-                            @$http, @$templateCache, @$compile, true)
-            )
+            @windows.push new directives.api.models.child.WindowChildModel(childScope, opts, @isIconVisibleOnClick,
+                    gMap, gMarker, @$http, @$templateCache, @$compile, undefined ,true)
 
         setChildScope: (childScope, model) =>
             for name in @scopePropNames
@@ -159,7 +151,7 @@
         interpolateContent: (content, model) =>
             if @contentKeys == undefined or @contentKeys.length == 0
                 return
-            exp = @$interpolate(content)
+            exp = @$interpolate content
             interpModel = {}
             interpModel[key] = model[key] for key in @contentKeys
-            exp(interpModel)
+            exp interpModel

@@ -1,42 +1,15 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose'),
+    schemas = require('./schemas');
 
-var OfficeSchema= new Schema({
-    isOffice: { type: Boolean, required: true },
-    isWorkshop: { type: Boolean, require: false},
-    isShop: { type: Boolean},
-    isStorage: {type: Boolean},
-    isHotel: {type: Boolean},
-    isOther: {type: Boolean},
-    pitch: {type: String},
-    streetAddress: {type: String},
-    postNumber: {type: Number},
-    place: {type: String},
-    county: {type: String},
-    municipality: {type: String},
-    area: {type: String},
-    directions: {type: String},
-    buildDate: {type: Date},
-    renovatedDate: {type: Date},
-    floor: {type: String},
-    rooms: {type: Number},
-    layout: {type: String},
-    rent: {type: Number},
-    rentInfo: {type: String},
-    transferCharge: {type: Number},
-    transferInfo: {type: String},
-    movingInDate: {type: Date},
-    movingInInfo: {type: String},
-    otherInfo: {type: String},
-    contactPerson: {type: String},
-    contactPhone: {type: String}
-});
+var ProjectModel = mongoose.model('projects', schemas.projectSchema);
+var ApartmentModel = mongoose.model('apartments', schemas.apartmentSchema);
+var UserModel = mongoose.model('users', schemas.userSchema);
+var NewsModel = mongoose.model('news', schemas.newsSchema);
 
-var OfficeModel = mongoose.model('Office', OfficeSchema);
 
-/**** Offices ****/
-module.exports.fetchOffices = function fetchOffices(req, res){
-    OfficeModel.find(function(err, offices){
+/**** Projects ****/
+module.exports.getProjects = function getProjects(req, res){
+    ProjectModel.find(function(err, offices){
         if(!err){
             res.json({Success: true, data: offices});
         } else{
@@ -46,39 +19,41 @@ module.exports.fetchOffices = function fetchOffices(req, res){
     })
 }
 
-module.exports.createOffice = function createOffice(req, res){
-    var office = new OfficeModel({
-        isOffice: req.body.isOffice,
-        isWorkshop: req.body.isWorkshop,
-        isShop: req.body.isShop,
-        isStorage: req.body.isStorage,
-        isHotel: req.body.isHotel,
-        isOther: req.body.isOther,
-        pitch: req.body.pitch,
-        streetAddress: req.body.streeAddress,
-        postNumber: req.body.postNumber,
-        place: req.body.place,
-        county: req.body.county,
-        municipality: req.body.municipality,
-        area: req.body.area,
-        directions: req.body.directions,
-        buildDate: req.body.buildDate,
-        renovatedDate: req.body.renovatedDate,
-        floor: req.body.floor,
-        rooms: req.body.rooms,
-        layout: req.body.layout,
-        rent: req.body.rent,
-        rentInfo: req.body.rentInfo,
-        transferCharge: req.body.transferCharge,
-        transferInfo: req.body.transferInfo,
-        movingInDate: req.body.movingInDate,
-        movingInInfo: req.body.movingInInfo,
-        otherInfo: req.body.otherInfo,
-        contactPerson: req.body.contactPerson,
-        contactPhone: req.body.contactPhone
-    });
+module.exports.updateProject = function updateProject(req, res){
+    var project = null;
+    if(req.body.id){
+        ProjectModel.findById(ObjectId.fromString(req.body.id), function(err, result){
+            if(!err){
+                project = result;
+            }else{
+                console.log('Error fetching project');
+            }
+        });
+    }else{
+        project = new ProjectModel();
+    }
 
-    office.save(function(err){
+    project.name = req.body.name;
+    project.builder = req.body.builder;
+    project.apartments = req.body.apartments;
+    project.startDate = req.body.startDate;
+    project.endDate = req.body.endDate;
+    //project.minRooms = req.body.minRooms;
+    //project.maxRooms = req.body.maxRooms;
+    //project.minPrice = req.body.minPrice;
+    //project.maxPrice = req.body.maxPrice;
+    //project.minSize = req.body.minSize;
+    //project.maxSize = req.body.maxSize;
+    //project.minRent = req.body.minRent;
+    //project.maxRent = req.body.maxRent;
+    project.projectPic = req.body.projectPic;
+    project.companyPic = req.body.companyPic;
+    project.descriptionTitle = req.body.descriptionTitle;
+    project.description = req.body.description;
+    project.areaInfo = req.body.areaInfo;
+    project.contactList = req.body.contactList;
+
+    project.save(function(err){
         if(!err){
             res.json({Success: true, data: null});
         } else{
@@ -88,8 +63,20 @@ module.exports.createOffice = function createOffice(req, res){
     });
 }
 
-module.exports.fetchOffice = function fetchOffice(req, res){
-    return OfficeModel.findById(req.params.id, function(err, office){
+module.exports.deleteProjectById = function deleteProjectById(req, res) {
+    ProjectModel.findById(req.body.id, function (err, project) {
+        if (!err) {
+            if(project)project.remove();
+            res.json({Success: true, data: null});
+        } else {
+            res.json({Success: false, data: null});
+            console.log("Error: " + err);
+        }
+    });
+}
+
+module.exports.fetchProjectById = function fetchProjectById(req, res){
+    ProjectModel.findById(req.params.id, function(err, office){
         if(!err){
             res.json({Success: true, data: office});
         } else{
@@ -99,9 +86,9 @@ module.exports.fetchOffice = function fetchOffice(req, res){
     })
 }
 
-module.exports.updateOffice = function updateOffice(req, res){
 
-}
+/**** Apartments ****/
+
 
 
 /**** USERS ****/

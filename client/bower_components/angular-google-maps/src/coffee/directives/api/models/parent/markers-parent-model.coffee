@@ -4,10 +4,10 @@
         constructor: (scope, element, attrs, mapCtrl, $timeout) ->
             super(scope, element, attrs, mapCtrl, $timeout)
             self = @
-            @markers = []
             @markersIndex = 0
             @gMarkerManager = undefined
             @scope = scope
+            @scope.markerModels = []
             @bigGulp = directives.api.utils.AsyncProcessor
             @$timeout = $timeout
             @$log.info @
@@ -40,29 +40,30 @@
             else
                 @gMarkerManager = new directives.api.managers.MarkerManager(@mapCtrl.getMap())
 
+            markers = []
+            scope.isMarkerModelsReady = false
             @bigGulp.handleLargeArray(scope.models, (model) =>
                 scope.doRebuild = true
                 child = new directives.api.models.child.MarkerChildModel(@markersIndex, model, scope, @mapCtrl, @$timeout,
                         @DEFAULTS, @doClick, @gMarkerManager)
-                @$log.info('child', child, 'markers', @markers)
-                @markers.push(child)
+                @$log.info('child', child, 'markers', markers)
+                markers.push(child)
                 @markersIndex++
             , (()->) #nothing for pause
             , () => #handle done callBack
                 @gMarkerManager.draw()
+                scope.markerModels = markers
                 @fit() if angular.isDefined(@attrs.fit) and scope.fit? and scope.fit
-                #put MarkerModels into local scope
-                scope.markerModels = @markers
+                scope.isMarkerModelsReady = true
+                scope.onMarkerModelsReady(scope) if scope.onMarkerModelsReady?
             )
 
 
         reBuildMarkers: (scope) =>
             if(!scope.doRebuild and scope.doRebuild != undefined)
                 return
-            _.each @markers, (oldM) =>
+            _.each scope.markerModels, (oldM) =>
                 oldM.destroy()
-            delete @markers
-            @markers = []
             @markersIndex = 0
             @gMarkerManager.clear() if @gMarkerManager?
             @createMarkers(scope)
@@ -81,14 +82,14 @@
             #slap index to the external model so that when they pass external back
             #for destroy we have a lookup?
             #this will require another attribute for destroySingle(marker)
-            model.destroy() for model in @markers
+            model.destroy() for model in scope.markerModels
             @gMarkerManager.clear() if @gMarkerManager?
 
         fit: ()=>
-            if (@mapCtrl and @markers? and @markers.length)
+            if @mapCtrl and @scope.markerModels? and @scope.markerModels.length > 0
                 bounds = new google.maps.LatLngBounds();
                 everSet = false
-                _.each @markers, (childModelMarker) =>
+                _.each @scope.markerModels, (childModelMarker) =>
                     if childModelMarker.gMarker?
                         everSet = true unless everSet
                         bounds.extend(childModelMarker.gMarker.getPosition())
