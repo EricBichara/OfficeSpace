@@ -20,11 +20,11 @@ module.exports.getProjects = function getProjects(req, res){
 }
 
 var mapProject = function(project1, project2){
-    project.name = project2.name;
-    project.builder = project2.builder;
-    project.apartments = project2.apartments;
-    project.startDate = project2.startDate;
-    project.endDate = project2.endDate;
+    project1.name = project2.name;
+    project1.builder = project2.builder;
+    project1.apartments = project2.apartments;
+    project1.startDate = project2.startDate;
+    project1.endDate = project2.endDate;
     //project.minRooms = project2.minRooms;
     //project.maxRooms = project2.maxRooms;
     //project.minPrice = project2.minPrice;
@@ -33,21 +33,12 @@ var mapProject = function(project1, project2){
     //project.maxSize = project2.maxSize;
     //project.minRent = project2.minRent;
     //project.maxRent = project2.maxRent;
-    project.projectPic = project2.projectPic;
-    project.companyPic = project2.companyPic;
-    project.descriptionTitle = project2.descriptionTitle;
-    project.description = project2.description;
-    project.areaInfo = project2.areaInfo;
-    project.contactList = project2.contactList;
-
-    project.save(function(err){
-        if(!err){
-            res.json({Success: true, data: null});
-        } else{
-            res.json({Success: false, data: null});
-            console.log("Error:" + err);
-        }
-    });
+    project1.projectPic = project2.projectPic;
+    project1.companyPic = project2.companyPic;
+    project1.descriptionTitle = project2.descriptionTitle;
+    project1.description = project2.description;
+    project1.areaInfo = project2.areaInfo;
+    project1.contactList = project2.contactList;
 }
 
 module.exports.updateProject = function updateProject(req, res){
@@ -57,6 +48,15 @@ module.exports.updateProject = function updateProject(req, res){
             if(!err){
                 project = result;
                 mapProject(project, req.body);
+                project.save(function(err){
+                    if(!err){
+                        res.json({Success: true, data: null});
+                    } else{
+                        res.json({Success: false, data: null});
+                        console.log("Error:" + err);
+                    }
+                });
+
             }else{
                 console.log('Error fetching project');
             }

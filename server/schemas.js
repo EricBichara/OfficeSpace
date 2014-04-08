@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 
 var ProjectSchema= new Schema({
     name: String,
-    builder: Boolean,
+    builder: String,
     apartments: [],
     startDate: Date,
     endDate: Date,
