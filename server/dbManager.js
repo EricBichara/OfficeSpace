@@ -42,7 +42,20 @@ var mapProject = function(project1, project2){
     project1.areaInfo = project2.areaInfo;
     project1.contactList = project2.contactList;
     console.log("Done Mapping");
-}
+};
+
+var saveProject = function(project, res){
+    project.save(function(err){
+        console.log("Saving");
+        if(!err){
+            console.log("project saved succesfully");
+            res.json({Success: true, data: null});
+        } else{
+            console.log("Error:" + err);
+            res.json({Success: false, data: null});
+        }
+    });
+};
 
 module.exports.updateProject = function updateProject(req, res){
     console.log("Going to update");
@@ -53,24 +66,15 @@ module.exports.updateProject = function updateProject(req, res){
             if(!err){
                 project = result;
                 mapProject(project, req.body);
-                project.save(function(err){
-                    console.log("Saving");
-                    if(!err){
-                        console.log("project saved succesfully");
-                        res.json({Success: true, data: null});
-                    } else{
-                        console.log("Error:" + err);
-                        res.json({Success: false, data: null});
-                    }
-                });
-
+                saveProject(project, res);
             }else{
                 console.log('Error fetching project');
             }
         });
     }else{
         project = new ProjectModel();
-        mapProject(project, req.body)
+        mapProject(project, req.body);
+        saveProject(project, res);
     }
 }
 
