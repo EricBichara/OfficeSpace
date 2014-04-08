@@ -19,4 +19,6 @@ Install Grunt plugins
 "grunt-contrib-clean": "~0.5.0",
 "grunt-contrib-watch": "~0.5.3"
 
+MONGOHQ_URL: mongodb://heroku:DNpvgxQC4XFNx2i5ZPyn8rKUrNvxcwbgD6Rfn0ERc0bddxgMSaDiDcnU-kUJF7qgxu9wewqkup3C6rIJzMeFjg@dharma.mongohq.com:10021/app16402159
+
 
