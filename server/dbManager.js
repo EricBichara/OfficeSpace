@@ -13,8 +13,9 @@ module.exports.getProjects = function getProjects(req, res){
         if(!err){
             res.json({Success: true, data: offices});
         } else{
-            res.json({Success: false, data: null});
             console.log("Error: " + err);
+            res.json({Success: false, data: null});
+
         }
     })
 }
@@ -52,8 +53,8 @@ module.exports.updateProject = function updateProject(req, res){
                     if(!err){
                         res.json({Success: true, data: null});
                     } else{
-                        res.json({Success: false, data: null});
                         console.log("Error:" + err);
+                        res.json({Success: false, data: null});
                     }
                 });
 
@@ -73,8 +74,8 @@ module.exports.deleteProjectById = function deleteProjectById(req, res) {
             if(project)project.remove();
             res.json({Success: true, data: null});
         } else {
-            res.json({Success: false, data: null});
             console.log("Error: " + err);
+            res.json({Success: false, data: null});
         }
     });
 }
@@ -84,8 +85,8 @@ module.exports.fetchProjectById = function fetchProjectById(req, res){
         if(!err){
             res.json({Success: true, data: office});
         } else{
-            res.json({Success: false, data: null});
             console.log("Error: " + err);
+            res.json({Success: false, data: null});
         }
     })
 }
