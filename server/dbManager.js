@@ -41,6 +41,7 @@ var mapProject = function(project1, project2){
     project1.description = project2.description;
     project1.areaInfo = project2.areaInfo;
     project1.contactList = project2.contactList;
+    console.log("Done Mapping");
 }
 
 module.exports.updateProject = function updateProject(req, res){
