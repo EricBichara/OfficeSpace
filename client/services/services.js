@@ -38,13 +38,15 @@ app.service('officeService', function ($http, $log) {
     }
 
     this.saveProject = function(project){
-        $http.post('/updateProject', project).
+        var post = $http.post('/updateProject', project).
             success(function(data, status){
 
             }).
             error(function(data, status){
                 console.log(data + " " + status);
             });
+
+        return post;
     }
 
 

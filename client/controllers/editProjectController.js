@@ -7,8 +7,10 @@ app.controller('EditProjectController', ['$scope', '$location', 'officeService',
         }
 
         $scope.saveProject = function(){
-            officeService.saveProject($scope.project);
-            $location.path('/admin/');
+            officeService.saveProject($scope.project).then(function(result){
+                $location.path('/editProjectsList/');
+            });
+
         }
 
         $scope.cancel = function(){

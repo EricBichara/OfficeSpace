@@ -21,7 +21,6 @@ module.exports.getProjects = function getProjects(req, res){
 }
 
 var mapProject = function(project1, project2){
-    console.log("Mapping");
     project1.name = project2.name;
     project1.builder = project2.builder;
     project1.apartments = project2.apartments;
@@ -41,12 +40,10 @@ var mapProject = function(project1, project2){
     project1.description = project2.description;
     project1.areaInfo = project2.areaInfo;
     project1.contactList = project2.contactList;
-    console.log("Done Mapping");
 };
 
 var saveProject = function(project, res){
     project.save(function(err){
-        console.log("Saving");
         if(!err){
             console.log("project saved succesfully");
             res.json({Success: true, data: null});
@@ -58,7 +55,6 @@ var saveProject = function(project, res){
 };
 
 module.exports.updateProject = function updateProject(req, res){
-    console.log("Going to update");
     var project = null;
     if(req.body._id){
         ProjectModel.findById(req.body._id, function(err, result){
