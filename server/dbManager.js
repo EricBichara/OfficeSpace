@@ -51,6 +51,7 @@ module.exports.updateProject = function updateProject(req, res){
                 mapProject(project, req.body);
                 project.save(function(err){
                     if(!err){
+                        console.log("project saved succesfully");
                         res.json({Success: true, data: null});
                     } else{
                         console.log("Error:" + err);
