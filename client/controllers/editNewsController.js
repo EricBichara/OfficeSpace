@@ -1,8 +1,8 @@
 /**
  * Created by ericbichara on Mar/29/14.
  */
-app.controller('EditNewsController', ['$scope', '$location', 'officeService',
-    function EditNewsController($scope, $location, officeService){
+app.controller('EditNewsController', ['$scope', 'officeService',
+    function EditNewsController($scope, officeService){
 
         $scope.opened = false;
         $scope.newsList = null;
@@ -10,7 +10,8 @@ app.controller('EditNewsController', ['$scope', '$location', 'officeService',
             title: "",
             date: "",
             content: ""
-        }
+        };
+
         $scope.$watch(function(){return officeService.news;}, function(data){
             $scope.newsList = data;
         });
@@ -26,7 +27,7 @@ app.controller('EditNewsController', ['$scope', '$location', 'officeService',
 
         $scope.deleteNews = function(id){
             officeService.deleteNews(id);
-        }
+        };
 
         $scope.open = function($event) {
             $event.preventDefault();
@@ -41,8 +42,10 @@ app.controller('EditNewsController', ['$scope', '$location', 'officeService',
         };
 
         $scope.createNews = function(){
-            $scope.selectedNews.title = "";
-            $scope.selectedNews.content = ""
-            $scope.selectedNews.date = new Date();
+            $scope.selectedNews = {
+                title: "",
+                content: "",
+                date: new Date()
+            }
         }
     }]);

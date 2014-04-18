@@ -1,5 +1,22 @@
 <div id="main-container">
     <div class="main-inner-container">
-        <h1>Edit Users</h1>
+        <div class="left-container">
+            <section id="main-content">
+                <h1>Edit Users</h1>
+                <button data-ng-click="createUser()">Create User</button>
+                <ul>
+                    <li data-ng-repeat="user in userList">
+                        <label data-ng-click="selectUser(user)">{{user.name}}</label>
+                        <button data-ng-click="deleteUser(user._id)">Delete</button>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <div>
+            <input data-ng-model="selectedUser.name">
+            <input data-ng-model="selectedUser.telephone">
+            <input data-ng-model="selectedUser.email">
+        </div>
+        <button data-ng-click="saveUser()">Save</button>
     </div>
 </div>

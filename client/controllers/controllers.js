@@ -38,8 +38,8 @@ app.controller('ContactController', ['$scope', '$location', 'officeService',
 /**
  * Created by ericbichara on Mar/29/14.
  */
-app.controller('EditNewsController', ['$scope', '$location', 'officeService',
-    function EditNewsController($scope, $location, officeService){
+app.controller('EditNewsController', ['$scope', 'officeService',
+    function EditNewsController($scope, officeService){
 
         $scope.opened = false;
         $scope.newsList = null;
@@ -47,7 +47,8 @@ app.controller('EditNewsController', ['$scope', '$location', 'officeService',
             title: "",
             date: "",
             content: ""
-        }
+        };
+
         $scope.$watch(function(){return officeService.news;}, function(data){
             $scope.newsList = data;
         });
@@ -63,7 +64,7 @@ app.controller('EditNewsController', ['$scope', '$location', 'officeService',
 
         $scope.deleteNews = function(id){
             officeService.deleteNews(id);
-        }
+        };
 
         $scope.open = function($event) {
             $event.preventDefault();
@@ -78,9 +79,11 @@ app.controller('EditNewsController', ['$scope', '$location', 'officeService',
         };
 
         $scope.createNews = function(){
-            $scope.selectedNews.title = "";
-            $scope.selectedNews.content = ""
-            $scope.selectedNews.date = new Date();
+            $scope.selectedNews = {
+                title: "",
+                content: "",
+                date: new Date()
+            }
         }
     }]);
 app.controller('EditProjectController', ['$scope', '$location', 'officeService', '$routeParams', '$modal',
@@ -143,7 +146,37 @@ app.controller('EditProjectsListController', ['$scope', '$location', 'officeServ
 app.controller('EditUsersController', ['$scope', '$location', 'officeService',
     function EditUsersController($scope, $location, officeService){
 
+        $scope.userList = null;
+        $scope.selectedUser = {
+            name: "",
+            telephone: "",
+            email: ""
+        }
+        $scope.$watch(function(){return officeService.users;}, function(data){
+            $scope.userList = data;
+        });
 
+        officeService.getUsers();
+
+        $scope.saveUser = function(){
+            officeService.saveUser($scope.selectedUser);
+        };
+
+        $scope.selectUser = function(user){
+            $scope.selectedUser = user;
+        };
+
+        $scope.deleteUser = function(id){
+            officeService.deleteUser(id);
+        }
+
+        $scope.createUser = function(){
+            $scope.selectedUser = {
+                name: "",
+                telephone: "",
+                email: ""
+            }
+        }
     }]);
 /**
  * Created with JetBrains WebStorm.
@@ -195,7 +228,7 @@ app.controller('SearchController', ['$scope', 'officeService', '$location',
         });
         officeService.getNews();
         $scope.newsList = []
-       
+
         $scope.openAdvSearch = function(){
             $scope.showAdvSearch = !$scope.showAdvSearch;
         }

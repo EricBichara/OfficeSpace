@@ -48,6 +48,7 @@ app.service('officeService', function ($http, $log) {
     };
 
 
+    /** News **/
     this.getNews = function(){
         var _this = this;
         $http.get('/getNews')
@@ -81,4 +82,37 @@ app.service('officeService', function ($http, $log) {
             });
     };
 
+    /** Users **/
+    this.getUsers = function(){
+        var _this = this;
+        $http.get('/getUsers')
+            .success(function(result){
+                _this.users = result.data;
+            })
+            .error(function(result){
+                _this.users = null;
+            });
+    };
+
+    this.saveUser = function(user){
+        var _this = this;
+        return $http.post('/updateUser', user)
+            .success(function(){
+                _this.getUsers();
+            })
+            .error(function(){
+
+            });
+    };
+
+    this.deleteUser = function(id){
+        var _this = this;
+        $http.post('/deleteUser', {id: id})
+            .success(function(result){
+                _this.getUsers();
+            })
+            .error(function(result){
+
+            });
+    };
 });

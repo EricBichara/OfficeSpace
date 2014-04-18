@@ -40,9 +40,9 @@ app.get('/getNews', dbManager.getNews);
 app.post('/updateNews', dbManager.updateNews);
 app.post('/deleteNews', dbManager.deleteNews);
 
-//app.get('getUsers', dbManager.getUsers);
-//app.post('getUser', dbManager.updateUser);
-//app.post('deleteUser', dbManager.deleteUser);
+app.get('/getUsers', dbManager.getUsers);
+app.post('/updateUser', dbManager.updateUser);
+app.post('/deleteUser', dbManager.deleteUser);
 
 
 /** Create Server **/
