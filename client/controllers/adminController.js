@@ -7,6 +7,8 @@
 app.controller('AdminController', ['$scope', '$location',
     function AdminController($scope, $location){
 
+        $scope.radioModel = 'Middle';
+
         $scope.editProjects = function(){
             $location.path('/editProjectsList/');
         };

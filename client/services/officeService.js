@@ -13,7 +13,7 @@ app.service('officeService', function ($http, $log) {
             .error(function(result){
                 _this.projects = null;
             });
-    }
+    };
 
     this.getProjectById = function(id){
         this.id = id;
@@ -23,7 +23,7 @@ app.service('officeService', function ($http, $log) {
                 return project;
             }
         }
-    }
+    };
 
     this.deleteProjectById = function(id){
         var _this = this;
@@ -35,23 +35,50 @@ app.service('officeService', function ($http, $log) {
             error(function(result){
                 $log.error('Error delete project');
             });
-    }
+    };
 
     this.saveProject = function(project){
-        var post = $http.post('/updateProject', project).
+        return $http.post('/updateProject', project).
             success(function(data, status){
 
             }).
             error(function(data, status){
                 console.log(data + " " + status);
             });
-
-        return post;
-    }
+    };
 
 
     this.getNews = function(){
+        var _this = this;
+        $http.get('/getNews')
+            .success(function(result){
+                _this.news = result.data;
+            })
+            .error(function(result){
+                _this.news = null;
+            });
+    };
 
-    }
+    this.saveNews = function(news){
+        var _this = this;
+        return $http.post('/updateNews', news)
+            .success(function(){
+                _this.getNews();
+            })
+            .error(function(){
+
+            });
+    };
+
+    this.deleteNews = function(id){
+        var _this = this;
+        $http.post('/deleteNews', {id: id})
+            .success(function(result){
+                _this.getNews();
+            })
+            .error(function(result){
+
+            });
+    };
 
 });

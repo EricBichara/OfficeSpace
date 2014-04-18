@@ -36,16 +36,13 @@ app.get('/getProjects', dbManager.getProjects);
 app.post('/updateProject', dbManager.updateProject);
 app.post('/deleteProjectById', dbManager.deleteProjectById);
 
-//app.get('getNews', dbManager.getNews);
-//app.post('/updateNews', dbManager.updateNews);
-//app.post('deleteNews', dbManager.deleteNews);
+app.get('/getNews', dbManager.getNews);
+app.post('/updateNews', dbManager.updateNews);
+app.post('/deleteNews', dbManager.deleteNews);
 
 //app.get('getUsers', dbManager.getUsers);
-app.post('getUser', dbManager.updateUser);
-app.post('deleteUser', dbManager.deleteUser);
-
-
-//app.post('/updateProject', dbManager.updateProject);
+//app.post('getUser', dbManager.updateUser);
+//app.post('deleteUser', dbManager.deleteUser);
 
 
 /** Create Server **/

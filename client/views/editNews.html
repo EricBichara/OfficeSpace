@@ -1,5 +1,23 @@
 <div id="main-container">
     <div class="main-inner-container">
-        <h1>Edit News</h1>
+        <div class="left-container">
+            <section id="main-content">
+                <h1>Edit News</h1>
+                <button data-ng-click="createNews()">Create News</button>
+                <ul>
+                    <li data-ng-repeat="news in newsList">
+                        <label data-ng-click="selectNews(news)">{{news.title}}</label>
+                        <button data-ng-click="deleteNews(news._id)">Delete</button>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <div>
+            <input data-ng-model="selectedNews.title">
+            <input data-ng-model="selectedNews.content">
+            <input type="text" ng-model="selectedNews.date" data-is-open="opened" datepicker-popup="dd-MMMM-yyyy" datepicker-options="dateOptions"/>
+            <button class="btn btn-default" data-ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+        </div>
+        <button data-ng-click="saveNews()">Save</button>
     </div>
 </div>

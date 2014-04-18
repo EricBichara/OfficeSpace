@@ -17,7 +17,11 @@ app.controller('SearchController', ['$scope', 'officeService', '$location',
         })
         officeService.getProjects();
 
-        $scope.newsList = officeService.getNews();
+        $scope.$watch(function(){return officeService.news;}, function(data){
+            $scope.newsList = data;
+        });
+        officeService.getNews();
+        $scope.newsList = []
 
         $scope.openAdvSearch = function(){
             $scope.showAdvSearch = !$scope.showAdvSearch;
