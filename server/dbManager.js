@@ -39,7 +39,7 @@ var mapProject = function(project1, project2){
     project1.descriptionTitle = project2.descriptionTitle;
     project1.description = project2.description;
     project1.areaInfo = project2.areaInfo;
-    project1.contactList = project2.contactList;
+    project1.contact = project2.contact;
 };
 
 var saveProject = function(project, res){

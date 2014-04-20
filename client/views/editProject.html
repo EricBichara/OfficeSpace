@@ -77,23 +77,7 @@
                         <textarea rows="6" cols="100" data-ng-model="project.areaInfo"></textarea>
                     </div>
                     <hr>
-                    <div class="project-info">
-                        <h4>Kontact</h4>
-                        <table>
-                            <tr>
-                                <td>Namn:</td>
-                                <td>{{project.contactList.name}}</td>
-                            </tr>
-                            <tr>
-                                <td>Telefon:</td>
-                                <td>{{project.contactList.telephone}}</td>
-                            </tr>
-                            <tr>
-                                <td>Email:</td>
-                                <td>{{project.contactList.email}}</td>
-                            </tr>
-                        </table>
-                    </div>
+                    <select ng-model="selectedUser" ng-options="c.name for c in userList"></select>
                     <button data-ng-click="cancel()">Cancel</button>
                     <button data-ng-click="saveProject()">Spara</button>
                     <button data-ng-click="createApartment()">Create Apartment</button>

@@ -23,7 +23,7 @@ var ProjectSchema= new Schema({
     descriptionTitle: String,
     description: String,
     areaInfo: String,
-    contactList: []
+    contact: String
 });
 
 var ApartmentSchema = new Schema({

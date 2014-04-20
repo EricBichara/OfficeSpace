@@ -85,7 +85,7 @@ app.service('officeService', function ($http, $log) {
     /** Users **/
     this.getUsers = function(){
         var _this = this;
-        $http.get('/getUsers')
+        return $http.get('/getUsers')
             .success(function(result){
                 _this.users = result.data;
             })
