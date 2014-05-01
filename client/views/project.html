@@ -50,15 +50,15 @@
                         <table>
                             <tr>
                                 <td>Namn:</td>
-                                <td>{{project.contactList.name}}</td>
+                                <td>{{contact.name}}</td>
                             </tr>
                             <tr>
                                 <td>Telefon:</td>
-                                <td>{{project.contactList.telephone}}</td>
+                                <td>{{contact.telephone}}</td>
                             </tr>
                             <tr>
                                 <td>Email:</td>
-                                <td>{{project.contactList.email}}</td>
+                                <td>{{contact.email}}</td>
                             </tr>
                         </table>
                     </div>
@@ -66,34 +66,14 @@
                 </section>
             </div>
             <div class="right-container" style="margin-top:25px;">
-                <div class="news" style="border:none;background:none;">
+                <div class="news" data-ng-controller="NewsController">
                     <h3>Nya projekt</h3>
                     <ul>
-                        <li>
+                        <li data-ng-repeat="news in newsList">
                             <p>
-                                <strong>129 Lägenheter i Hjorthagen</strong>
-                                Byggherre: Svenska Hus
-                                <a href="#">Läs mer...</a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <strong>Nyproduktion av 30 lägenheter vid Telefonplan</strong>
-                                Byggherre: Svenska Hus
-                                <a href="#">Läs mer...</a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <strong>36 Lägenheter i olika storlekar mitt i stan. Nya Fridhemsparken</strong>
-                                Byggherre: JM
-                                <a href="#">Läs mer...</a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <strong>Nyproduktion av 15 lägenheter i Fältöversten, Stockholm</strong>
-                                Byggherre: Veidekke
+                                <strong>{{news.date}}</strong>
+                                <strong>{{news.title}}</strong>
+                                {{news.content}}
                                 <a href="#">Läs mer...</a>
                             </p>
                         </li>

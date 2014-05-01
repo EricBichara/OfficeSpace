@@ -25,29 +25,22 @@ function Project(){
 function Apartment(){
     this.id = null;
 
-    this.isOffice = null;
-    this.isWorkshop = null;
-    this.isShop = null;
-    this.isStorage = null;
-    this.isHotel = null;
-    this.isOther = null;
-    this.pitch = null;
-    this.streetAddress = null;
-    this.postNumber = null;
-    this.place = null;
-    this.county = null;
-    this.municipality = null;
-    this.area = null;
-    this.directions = null;
-    this.floor = null;
-    this.rooms = null;
-    this.layout = null;
-    this.rent = null;
-    this.rentInfo = null;
-    this.movingInDate = null;
-    this.movingInInfo = null;
-    this.otherInfo = null;
-    this.contactList = [];
+    this.isOffice = false,
+    this.isWorkshop = false,
+    this.isShop = false,
+    this.isStorage = false,
+    this.isHotel = false,
+    this.isOther = false,
+    this.description = null,
+    this.size = null,
+    this.floor = null,
+    this.rooms = null,
+    this.layout = null,
+    this.rent = null,
+    this.rentInfo = null,
+    this.movingInDate = null,
+    this.movingInInfo = null,
+    this.otherInfo = null
 }
 
 function News(){

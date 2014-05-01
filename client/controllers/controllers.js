@@ -24,9 +24,35 @@ app.controller('AdminController', ['$scope', '$location',
 /**
  * Created by ericbichara on Mar/30/14.
  */
-app.controller('ApartmentPopupController', ['$scope', '$location', 'officeService', '$routeParams', '$modal',
-    function ApartmentPopupController($scope, $location, officeService, $routeParams, $modal){
+app.controller('ApartmentPopupController', ['$scope', '$location', 'officeService', '$routeParams', '$modalInstance',
+    function ApartmentPopupController($scope, $location, officeService, $routeParams, $modalInstance, apartment){
+        $scope.currentApartment = null;
 
+        if(apartment){
+            $scope.currentApartment = apartment;
+        }else{
+            $scope.currentApartment = new Apartment();
+        }
+
+        $scope.ok = function () {
+            $modalInstance.close($scope.currentApartment);
+        };
+
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
+
+        $scope.open = function($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+
+            $scope.opened = true;
+        };
+
+        $scope.dateOptions = {
+            'year-format': "'yy'",
+            'starting-day': 1
+        };
     }]);
 /**
  * Created by ericbichara on Dec/28/13.
@@ -93,33 +119,35 @@ app.controller('EditProjectController', ['$scope', '$location', 'officeService',
 
         $scope.userList = null;
         $scope.selectedUser = null;
+        $scope.project = {};
 
         $scope.$watch(function(){return officeService.users;}, function(data){
             $scope.userList = data;
         });
 
-        officeService.getUsers().then(function(result){
-            if(!$routeParams.id){
-                $scope.project = new Project();
-            }else{
-                $scope.project = officeService.getProjectById($routeParams.id);
-                if($scope.project.contact !== null) {
-                    for (var i = 0; i < $scope.userList.length; i++) {
-                        if ($scope.userList[i]._id === $scope.project.contact) {
-                            $scope.selectedUser = $scope.userList[i];
+        officeService.getUsers().then(
+            function(result){
+                if(!$routeParams.id){
+                    $scope.project = new Project();
+                }else{
+                    officeService.getProjectById($routeParams.id).then(
+                        function(result){
+                            $scope.project = result;
+                            if($scope.project.contact !== null) {
+                                for (var i = 0; i < $scope.userList.length; i++) {
+                                    if ($scope.userList[i]._id === $scope.project.contact) {
+                                        $scope.selectedUser = $scope.userList[i];
+                                        break;
+                                    }
+                                }
+                            }
+                        },
+                        function(error){
 
-                            break;
                         }
-                    }
+                    );
                 }
-            }
         });
-
-        if(!$routeParams.id){
-            $scope.project = new Project();
-        }else{
-            $scope.project = officeService.getProjectById($routeParams.id);
-        }
 
         $scope.saveProject = function(){
             $scope.project.contact = $scope.selectedUser._id;
@@ -135,7 +163,16 @@ app.controller('EditProjectController', ['$scope', '$location', 'officeService',
         $scope.createApartment = function(){
             var modalInstance = $modal.open({
                 templateUrl: 'views/popups/apartmentPopup.html',
-                controller: 'ApartmentPopupController'
+                controller: 'ApartmentPopupController',
+                resolve:{
+                    apartment: function(){
+                        return {};
+                    }
+                }
+            });
+
+            modalInstance.result.then(function(apartment){
+                console.log('new apartment' + apartment);
             });
         }
     }]);
@@ -206,13 +243,19 @@ app.controller('EditUsersController', ['$scope', '$location', 'officeService',
         }
     }]);
 /**
- * Created with JetBrains WebStorm.
- * User: ericbichara
- * Date: Jun/17/13
- * Time: 22:47
- * To change this template use File | Settings | File Templates.
+ * Created by ericbichara on Apr/26/14.
  */
 
+app.controller('NewsController', ['$scope', 'officeService',
+    function NewsController($scope, officeService){
+        $scope.newsList = null;
+
+        $scope.$watch(function(){return officeService.news;}, function(data){
+            $scope.newsList = data;
+        });
+        officeService.getNews();
+
+    }]);
 /**
  * Created by ericbichara on Oct/12/13.
  */
@@ -229,7 +272,22 @@ app.controller('PortalController', ['$scope', '$location', 'officeService',
  */
 app.controller('ProjectController', ['$scope', '$location', 'officeService', '$routeParams',
     function ProjectController($scope, $location, officeService, $routeParams){
-        $scope.project = officeService.getProjectById($routeParams.id);
+
+        $scope.project = null;
+        $scope.contact = null;
+
+        officeService.getProjectById($routeParams.id).then(
+            function(result){
+                $scope.project = result;
+                if($scope.project.contact){
+                    officeService.getUserById($scope.project.contact).then(
+                        function(result){
+                            $scope.contact = result;
+                        }
+                    );
+                }
+            }
+        );
     }]);
 /**
  * Created with JetBrains WebStorm.
@@ -249,12 +307,6 @@ app.controller('SearchController', ['$scope', 'officeService', '$location',
             $scope.projects = data;
         })
         officeService.getProjects();
-
-        $scope.$watch(function(){return officeService.news;}, function(data){
-            $scope.newsList = data;
-        });
-        officeService.getNews();
-        $scope.newsList = []
 
         $scope.openAdvSearch = function(){
             $scope.showAdvSearch = !$scope.showAdvSearch;

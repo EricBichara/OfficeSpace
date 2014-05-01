@@ -1,4 +1,4 @@
-app.service('officeService', function ($http, $log) {
+app.service('officeService', ['$http', '$log', '$q', function ($http, $log, $q) {
 
     this.city = "stockholm";
     this.projects = [];
@@ -16,13 +16,21 @@ app.service('officeService', function ($http, $log) {
     };
 
     this.getProjectById = function(id){
-        this.id = id;
-        for(var i = 0; i<this.projects.length; i++){
-            var project = this.projects[i];
-            if(project._id === this.id){
-                return project;
+        var deferred = $q.defer();
+        $http.post('/getProjectById', {id: id}).then(
+            function(result){
+                if(result.data.Success === true){
+                    deferred.resolve(result.data.data);
+                }else{
+                    deferred.reject('Error getting project');
+                }
+            },
+            function(error){
+               deferred.reject('Error getting project');
             }
-        }
+        );
+
+        return deferred.promise;
     };
 
     this.deleteProjectById = function(id){
@@ -94,6 +102,24 @@ app.service('officeService', function ($http, $log) {
             });
     };
 
+    this.getUserById = function(id){
+        var deferred = $q.defer();
+        $http.post('/getUserById', {id: id}).then(
+            function(result){
+                if(result.data.Success === true){
+                    deferred.resolve(result.data.data);
+                }else{
+                    deferred.reject("Error getting user");
+                }
+            },
+            function(error){
+                deferred.reject("Error getting user");
+            }
+        );
+
+        return deferred.promise;
+    }
+
     this.saveUser = function(user){
         var _this = this;
         return $http.post('/updateUser', user)
@@ -115,4 +141,4 @@ app.service('officeService', function ($http, $log) {
 
             });
     };
-});
+}]);

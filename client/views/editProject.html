@@ -82,41 +82,14 @@
                     <button data-ng-click="saveProject()">Spara</button>
                     <button data-ng-click="createApartment()">Create Apartment</button>
                 </section>
-            </div>
-            <div class="right-container" style="margin-top:25px;">
-                <div class="news" style="border:none;background:none;">
-                    <h3>Nya projekt</h3>
-                    <ul>
-                        <li>
-                            <p>
-                                <strong>129 Lägenheter i Hjorthagen</strong>
-                                Byggherre: Svenska Hus
-                                <a href="#">Läs mer...</a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <strong>Nyproduktion av 30 lägenheter vid Telefonplan</strong>
-                                Byggherre: Svenska Hus
-                                <a href="#">Läs mer...</a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <strong>36 Lägenheter i olika storlekar mitt i stan. Nya Fridhemsparken</strong>
-                                Byggherre: JM
-                                <a href="#">Läs mer...</a>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <strong>Nyproduktion av 15 lägenheter i Fältöversten, Stockholm</strong>
-                                Byggherre: Veidekke
-                                <a href="#">Läs mer...</a>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
+
+                <ul>
+                    <li data-ng-repeat="apartment in project.apartments">
+                        <div>
+                            {{apartment.size}}}
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

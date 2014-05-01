@@ -1,1 +1,64 @@
 <h1>Apartment here</h1>
+<table>
+    <tr>
+        <td><h4>Is Office:</h4></td>
+        <td><input type="checkbox" data-ng-model="currentApartment.isOffice"></td>
+    </tr>
+    <tr>
+        <td><h4>Is Workshop:</h4></td>
+        <td><input type="checkbox" data-ng-model="currentApartment.isWorkspace"></td>
+    </tr>
+    <tr>
+        <td><h4>Is Shop:</h4></td>
+        <td><input type="checkbox" data-ng-model="currentApartment.isShop"></td>
+    </tr>
+    <tr>
+        <td><h4>Is Storage:</h4></td>
+        <td><input type="checkbox" data-ng-model="currentApartment.isWorkspace"></td>
+    </tr>
+    <tr>
+        <td><h4>Is Hotel:</h4></td>
+        <td><input type="checkbox" data-ng-model="currentApartment.isHotel"></td>
+    </tr>
+    <tr>
+        <td><h4>Other:</h4></td>
+        <td><input type="checkbox" data-ng-model="currentApartment.isOther"></td>
+    </tr>
+    <tr>
+        <td><h4>Beskrivning:</h4></td>
+        <td><textarea data-ng-model="currentApartment.description"></textarea></td>
+    </tr>
+    <tr>
+        <td><h4>Floor:</h4></td>
+        <td><input type="text" data-ng-model="currentApartment.floor"></td>
+    </tr>
+    <tr>
+        <td><h4>Rooms:</h4></td>
+        <td><input type="text" data-ng-model="currentApartment.rooms"></td>
+    </tr>
+    <tr>
+        <td><h4>Rent:</h4></td>
+        <td><input type="text" data-ng-model="currentApartment.rent"></td>
+    </tr>
+    <tr>
+        <td><h4>Rent Info:</h4></td>
+        <td><input type="text" data-ng-model="currentApartment.rentInfo"></td>
+    </tr>
+    <tr>
+        <td><h4>Moving In Date:</h4></td>
+        <td><input type="text" ng-model="currentApartment.movingInDate" data-is-open="opened" datepicker-popup="dd-MMMM-yyyy" datepicker-options="dateOptions"/>
+            <button class="btn btn-default" data-ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button></td>
+    </tr>
+    <tr>
+        <td><h4>Moving in Info:</h4></td>
+        <td><textarea data-ng-model="currentApartment.movingInInfo"></textarea></td>
+    </tr>
+    <tr>
+        <td><h4>Other Info:</h4></td>
+        <td><textarea data-ng-model="currentApartment.otherInfo"></textarea></td>
+    </tr>
+
+    <button data-ng-click="ok()">OK</button>
+    <button data-ng-click="cancel()">Cancel</button>
+
+</table>

@@ -7,6 +7,13 @@ var Schema = mongoose.Schema;
 var ProjectSchema= new Schema({
     name: String,
     builder: String,
+    streetAddress: String,
+    postNumber: Number,
+    place: String,
+    county: String,
+    municipality: String,
+    area: String,
+    directions: String,
     apartments: [],
     startDate: Date,
     endDate: Date,
@@ -27,20 +34,16 @@ var ProjectSchema= new Schema({
 });
 
 var ApartmentSchema = new Schema({
+    projectId: String,
+
     isOffice: Boolean,
     isWorkshop: Boolean,
     isShop: Boolean,
     isStorage: Boolean,
     isHotel: Boolean,
     isOther: Boolean,
-    pitch: String,
-    streetAddress: String,
-    postNumber: Number,
-    place: String,
-    county: String,
-    municipality: String,
-    area: String,
-    directions: String,
+    description: String,
+    size: Number,
     floor: Number,
     rooms: Number,
     layout: String,
@@ -48,8 +51,7 @@ var ApartmentSchema = new Schema({
     rentInfo: String,
     movingInDate: Date,
     movingInInfo: String,
-    otherInfo: String,
-    contactList: []
+    otherInfo: String
 });
 
 var UserSchema = new Schema({

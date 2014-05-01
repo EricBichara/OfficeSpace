@@ -6,7 +6,9 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , mongoose = require('mongoose')
-  , dbManager = require('./server/dbManager.js');
+  , dbManager = require('./server/dbManager.js')
+  , userDBManager = require('./server/userDBManager.js')
+  , newsDBManager = require('./server/newsDBManager.js');
 
 var app = express();
 
@@ -35,14 +37,16 @@ db.once('open', function callback(){
 app.get('/getProjects', dbManager.getProjects);
 app.post('/updateProject', dbManager.updateProject);
 app.post('/deleteProjectById', dbManager.deleteProjectById);
+app.post('/getProjectById', dbManager.getProjectById);
 
-app.get('/getNews', dbManager.getNews);
-app.post('/updateNews', dbManager.updateNews);
-app.post('/deleteNews', dbManager.deleteNews);
+app.get('/getNews', newsDBManager.getNews);
+app.post('/updateNews', newsDBManager.updateNews);
+app.post('/deleteNews', newsDBManager.deleteNews);
 
-app.get('/getUsers', dbManager.getUsers);
-app.post('/updateUser', dbManager.updateUser);
-app.post('/deleteUser', dbManager.deleteUser);
+app.get('/getUsers', userDBManager.getUsers);
+app.post('/updateUser', userDBManager.updateUser);
+app.post('/deleteUser', userDBManager.deleteUser);
+app.post('/getUserById', userDBManager.getUserById);
 
 
 /** Create Server **/

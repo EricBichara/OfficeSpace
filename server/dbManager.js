@@ -3,9 +3,6 @@ var mongoose = require('mongoose'),
 
 var ProjectModel = mongoose.model('projects', schemas.projectSchema);
 var ApartmentModel = mongoose.model('apartments', schemas.apartmentSchema);
-var UserModel = mongoose.model('users', schemas.userSchema);
-var NewsModel = mongoose.model('news', schemas.newsSchema);
-
 
 /**** Projects ****/
 module.exports.getProjects = function getProjects(req, res){
@@ -18,7 +15,7 @@ module.exports.getProjects = function getProjects(req, res){
 
         }
     })
-}
+};
 
 var mapProject = function(project1, project2){
     project1.name = project2.name;
@@ -71,7 +68,7 @@ module.exports.updateProject = function updateProject(req, res){
         mapProject(project, req.body);
         saveProject(project, res);
     }
-}
+};
 
 module.exports.deleteProjectById = function deleteProjectById(req, res) {
     ProjectModel.findById(req.body.id, function (err, project) {
@@ -83,141 +80,27 @@ module.exports.deleteProjectById = function deleteProjectById(req, res) {
             res.json({Success: false, data: null});
         }
     });
-}
+};
 
-module.exports.fetchProjectById = function fetchProjectById(req, res){
-    ProjectModel.findById(req.params.id, function(err, office){
+module.exports.getProjectById = function fetchProjectById(req, res){
+    ProjectModel.findById(req.body.id, function(err, project){
         if(!err){
-            res.json({Success: true, data: office});
+            res.json({Success: true, data: project});
         } else{
             console.log("Error: " + err);
             res.json({Success: false, data: null});
         }
     })
-}
+};
 
 
 /**** Apartments ****/
 
-
-/**** News ****/
-module.exports.getNews = function(req, res){
-    NewsModel.find(function(err, news){
-        if(!err){
-            res.json({Success: true, data: news});
-        }else{
-            res.json({Success: false, data: null});
-        }
-    });
-};
-
-var mapNews = function(news1, news2){
-    news1.date = news2.date;
-    news1.title = news2.title;
-    news1.content = news2.content;
-};
-
-var saveNews = function(news, res){
-    news.save(function(err){
-        if(!err){
-            console.log("news saved successfully");
-            res.json({Success: true, data: null});
-        } else{
-            console.log("Error:" + err);
-            res.json({Success: false, data: null});
-        }
-    });
-};
-
-module.exports.updateNews = function(req, res){
-    var news = null;
-    if(req.body._id){
-        NewsModel.findById(req.body._id, function(err, result){
-            if(!err){
-                news = result;
-                mapNews(news, req.body);
-                saveNews(news, res);
-            }else{
-                res.json({Success: false, data: null});
-            }
-        });
-    }else{
-        news = new NewsModel();
-        mapNews(news, req.body);
-        saveNews(news, res);
-    }
-};
-
-module.exports.deleteNews = function(req, res){
-    NewsModel.findById(req.body.id, function (err, news) {
-        if (!err) {
-            if(news)news.remove();
-            res.json({Success: true, data: null});
-        } else {
-            console.log("Error: " + err);
-            res.json({Success: false, data: null});
-        }
-    });
+module.exports.getApartmentsByProjectId = function(req, res){
+    ApartmentModel.find()
 };
 
 
-/**** USERS ****/
-module.exports.getUsers = function(req, res){
-    UserModel.find(function(err, user){
-        if(!err){
-            res.json({Success: true, data: user});
-        }else{
-            res.json({Success: false, data: null});
-        }
-    });
-};
 
-var mapUser = function(user1, user2){
-    user1.name = user2.name;
-    user1.telephone = user2.telephone;
-    user1.email = user2.email;
-};
 
-var saveUser = function(user, res){
-    user.save(function(err){
-        if(!err){
-            console.log("user saved successfully");
-            res.json({Success: true, data: null});
-        } else{
-            console.log("Error:" + err);
-            res.json({Success: false, data: null});
-        }
-    });
-};
-
-module.exports.updateUser = function(req, res){
-    var user = null;
-    if(req.body._id){
-        UserModel.findById(req.body._id, function(err, result){
-            if(!err){
-                user = result;
-                mapUser(user, req.body);
-                saveUser(user, res);
-            }else{
-                res.json({Success: false, data: null});
-            }
-        });
-    }else{
-        user = new UserModel();
-        mapUser(user, req.body);
-        saveUser(user, res);
-    }
-};
-
-module.exports.deleteUser = function(req, res){
-    UserModel.findById(req.body.id, function (err, user) {
-        if (!err) {
-            if(user)user.remove();
-            res.json({Success: true, data: null});
-        } else {
-            console.log("Error: " + err);
-            res.json({Success: false, data: null});
-        }
-    });
-};
 
