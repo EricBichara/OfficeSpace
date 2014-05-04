@@ -1,15 +1,9 @@
 /**
  * Created by ericbichara on Mar/30/14.
  */
-app.controller('ApartmentPopupController', ['$scope', '$location', 'officeService', '$routeParams', '$modalInstance',
+app.controller('ApartmentPopupController', ['$scope', '$location', 'officeService', '$routeParams', '$modalInstance', 'apartment',
     function ApartmentPopupController($scope, $location, officeService, $routeParams, $modalInstance, apartment){
-        $scope.currentApartment = null;
-
-        if(apartment){
-            $scope.currentApartment = apartment;
-        }else{
-            $scope.currentApartment = new Apartment();
-        }
+        $scope.currentApartment = apartment;
 
         $scope.ok = function () {
             $modalInstance.close($scope.currentApartment);

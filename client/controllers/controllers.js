@@ -24,15 +24,9 @@ app.controller('AdminController', ['$scope', '$location',
 /**
  * Created by ericbichara on Mar/30/14.
  */
-app.controller('ApartmentPopupController', ['$scope', '$location', 'officeService', '$routeParams', '$modalInstance',
+app.controller('ApartmentPopupController', ['$scope', '$location', 'officeService', '$routeParams', '$modalInstance', 'apartment',
     function ApartmentPopupController($scope, $location, officeService, $routeParams, $modalInstance, apartment){
-        $scope.currentApartment = null;
-
-        if(apartment){
-            $scope.currentApartment = apartment;
-        }else{
-            $scope.currentApartment = new Apartment();
-        }
+        $scope.currentApartment = apartment;
 
         $scope.ok = function () {
             $modalInstance.close($scope.currentApartment);
@@ -120,6 +114,7 @@ app.controller('EditProjectController', ['$scope', '$location', 'officeService',
         $scope.userList = null;
         $scope.selectedUser = null;
         $scope.project = {};
+        $scope.apartments = [];
 
         $scope.$watch(function(){return officeService.users;}, function(data){
             $scope.userList = data;
@@ -132,7 +127,8 @@ app.controller('EditProjectController', ['$scope', '$location', 'officeService',
                 }else{
                     officeService.getProjectById($routeParams.id).then(
                         function(result){
-                            $scope.project = result;
+                            $scope.project = result.project;
+                            $scope.apartments = result.apartments;
                             if($scope.project.contact !== null) {
                                 for (var i = 0; i < $scope.userList.length; i++) {
                                     if ($scope.userList[i]._id === $scope.project.contact) {
@@ -151,7 +147,7 @@ app.controller('EditProjectController', ['$scope', '$location', 'officeService',
 
         $scope.saveProject = function(){
             $scope.project.contact = $scope.selectedUser._id;
-            officeService.saveProject($scope.project).then(function(result){
+            officeService.saveProject($scope.project, $scope.apartments).then(function(result){
                 $location.path('/editProjectsList/');
             });
         }
@@ -166,7 +162,23 @@ app.controller('EditProjectController', ['$scope', '$location', 'officeService',
                 controller: 'ApartmentPopupController',
                 resolve:{
                     apartment: function(){
-                        return {};
+                        return new Apartment();
+                    }
+                }
+            });
+
+            modalInstance.result.then(function(apartment){
+                $scope.apartments.push(apartment);
+            });
+        }
+
+        $scope.editApartment = function(apartment){
+            var modalInstance = $modal.open({
+                templateUrl: 'views/popups/apartmentPopup.html',
+                controller: 'ApartmentPopupController',
+                resolve:{
+                    apartment: function(){
+                        return apartment;
                     }
                 }
             });
@@ -174,7 +186,19 @@ app.controller('EditProjectController', ['$scope', '$location', 'officeService',
             modalInstance.result.then(function(apartment){
                 console.log('new apartment' + apartment);
             });
-        }
+        };
+
+        $scope.viewApartment = function(apartment){
+
+        };
+
+        $scope.deleteApartment = function(apartment){
+            angular.forEach($scope.apartments, function(value, index){
+                if(value.size === apartment.size){
+                    $scope.apartments.slice(index, 1);
+                }
+            }, this);
+        };
     }]);
 /**
  * Created by ericbichara on Mar/29/14.

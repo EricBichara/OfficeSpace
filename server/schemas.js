@@ -14,7 +14,6 @@ var ProjectSchema= new Schema({
     municipality: String,
     area: String,
     directions: String,
-    apartments: [],
     startDate: Date,
     endDate: Date,
     minRooms: Number,
@@ -36,6 +35,7 @@ var ProjectSchema= new Schema({
 var ApartmentSchema = new Schema({
     projectId: String,
 
+    price: Number,
     isOffice: Boolean,
     isWorkshop: Boolean,
     isShop: Boolean,
@@ -65,8 +65,6 @@ var NewsSchema = new Schema({
     title: String,
     content: String
 });
-
-
 
 module.exports.projectSchema = ProjectSchema;
 module.exports.apartmentSchema = ApartmentSchema;

@@ -25,6 +25,7 @@ function Project(){
 function Apartment(){
     this.id = null;
 
+    this.price = null,
     this.isOffice = false,
     this.isWorkshop = false,
     this.isShop = false,

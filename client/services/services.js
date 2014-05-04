@@ -45,8 +45,8 @@ app.service('officeService', ['$http', '$log', '$q', function ($http, $log, $q) 
             });
     };
 
-    this.saveProject = function(project){
-        return $http.post('/updateProject', project).
+    this.saveProject = function(project, apartments){
+        return $http.post('/updateProject', {project: project, apartments: apartments}).
             success(function(data, status){
 
             }).
@@ -169,6 +169,7 @@ function Project(){
 function Apartment(){
     this.id = null;
 
+    this.price = null,
     this.isOffice = false,
     this.isWorkshop = false,
     this.isShop = false,

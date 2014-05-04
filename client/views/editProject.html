@@ -77,19 +77,24 @@
                         <textarea rows="6" cols="100" data-ng-model="project.areaInfo"></textarea>
                     </div>
                     <hr>
+                    <table>
+                        <tr data-ng-repeat="apartment in apartments">
+                            <td>{{apartment.rooms}}</td>
+                            <td>{{apartment.price}}</td>
+                            <td>{{apartment.size}}</td>
+                            <td><button data-ng-click="editApartment(apartment)">Edit</button></td>
+                            <td><button data-ng-click="viewApartment(apartment)">View</button></td>
+                            <td><button data-ng-click="deleteApartment(apartment)">Delete</button></td>
+                        </tr>
+                    </table>
+                    <hr>
                     <select ng-model="selectedUser" ng-options="c.name for c in userList"></select>
                     <button data-ng-click="cancel()">Cancel</button>
                     <button data-ng-click="saveProject()">Spara</button>
                     <button data-ng-click="createApartment()">Create Apartment</button>
                 </section>
 
-                <ul>
-                    <li data-ng-repeat="apartment in project.apartments">
-                        <div>
-                            {{apartment.size}}}
-                        </div>
-                    </li>
-                </ul>
+
             </div>
         </div>
     </div>
