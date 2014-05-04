@@ -108,9 +108,6 @@ app.controller('EditNewsController', ['$scope', 'officeService',
     }]);
 app.controller('EditProjectController', ['$scope', '$location', 'officeService', '$routeParams', '$modal',
     function AdminController($scope, $location, officeService, $routeParams, $modal){
-
-        var userList = [];
-
         $scope.userList = null;
         $scope.selectedUser = null;
         $scope.project = {};
@@ -129,6 +126,7 @@ app.controller('EditProjectController', ['$scope', '$location', 'officeService',
                         function(result){
                             $scope.project = result.project;
                             $scope.apartments = result.apartments;
+                            calculateProject();
                             if($scope.project.contact !== null) {
                                 for (var i = 0; i < $scope.userList.length; i++) {
                                     if ($scope.userList[i]._id === $scope.project.contact) {
@@ -169,6 +167,7 @@ app.controller('EditProjectController', ['$scope', '$location', 'officeService',
 
             modalInstance.result.then(function(apartment){
                 $scope.apartments.push(apartment);
+                calculateProject();
             });
         }
 
@@ -185,7 +184,59 @@ app.controller('EditProjectController', ['$scope', '$location', 'officeService',
 
             modalInstance.result.then(function(apartment){
                 console.log('new apartment' + apartment);
+                calculateProject();
             });
+        };
+
+        var calculateProject = function(){
+            var minSize = null;
+            var maxSize = null;
+            var minRent = null;
+            var maxRent = null;
+            var minPrice = null;
+            var maxPrice = null;
+            var minRooms = null;
+            var maxRooms = null;
+
+            angular.forEach($scope.apartments, function(apartment, index){
+                if(minSize === null || minSize > apartment.size){
+                    minSize = apartment.size;
+                }
+                if(maxSize === null || maxSize < apartment.size){
+                    maxSize = apartment.size;
+                }
+
+                if(minRent === null || minRent > apartment.rent){
+                    minRent = apartment.rent;
+                }
+                if(maxRent === null || maxRent < apartment.rent){
+                    maxRent = apartment.rent;
+                }
+
+                if(minPrice === null || minPrice > apartment.price){
+                    minPrice = apartment.price;
+                }
+                if(maxPrice === null || maxPrice < apartment.price){
+                    maxPrice = apartment.price;
+                }
+
+                if(minRooms === null || minRooms > apartment.rooms){
+                    minRooms = apartment.rooms;
+                }
+                if(maxRooms || maxRooms === null || maxRooms < apartment.rooms){
+                    maxRooms = apartment.rooms;
+                }
+            });
+
+            $scope.project.minSize = minSize;
+            $scope.project.maxSize = maxSize;
+            $scope.project.minRent = minRent;
+            $scope.project.maxRent = maxRent;
+            $scope.project.minPrice = minPrice;
+            $scope.project.maxPrice = maxPrice;
+            $scope.project.minRooms = minRooms;
+            $scope.project.maxRooms = maxRooms;
+
         };
 
         $scope.viewApartment = function(apartment){
