@@ -350,10 +350,12 @@ app.controller('ProjectController', ['$scope', '$location', 'officeService', '$r
 
         $scope.project = null;
         $scope.contact = null;
+        $scope.apartments = null;
 
         officeService.getProjectById($routeParams.id).then(
             function(result){
-                $scope.project = result;
+                $scope.project = result.project;
+                $scope.apartments = result.apartments;
                 if($scope.project.contact){
                     officeService.getUserById($scope.project.contact).then(
                         function(result){
