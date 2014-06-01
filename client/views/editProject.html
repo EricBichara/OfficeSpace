@@ -1,101 +1,144 @@
-<div>
-    <div id="main-container">
-        <div class="main-inner-container">
-            <h1>Dalénum områdesinformation</h1>
-            <section id="map-area">
-                <div>
-                    <img src="../content/images/example-image.png" alt="" style="margin:0 0 25px 0;width:100%;" />
-                </div>
-            </section>
-            <div class="left-container">
-                <section id="main-content">
+<div id="content-container" class="container">
+    <h1>Dalénum områdesinformation</h1>
+    <div class="row show-grid thumbs-project">
+        <div class="col-md-8">
+            <img src="content/images/thumb-main.png" class="thumb-main" alt="">
+        </div>
+        <div class="col-md-4 ">
+            <ul class="thumb-list-small">
+                <li><a href="#"><img src="content/images/thumb-s-01.png" class="thumb-small" style="margin-bottom:20px;" alt=""></a></li>
+                <li><a href="#"><img src="content/images/thumb-s-02.png" class="thumb-small" style="margin-bottom:20px;" alt=""></a></li>
+                <li><a href="#"><img src="content/images/thumb-s-03.png" class="thumb-small"  alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row show-grid">
+        <div class="col-md-8">
+            <h3>Lägg till nytt objekt</h3>
+            <div class="toolbar">
+                <ul>
+                    <li style="float:left;">
+                        <button type="button" data-ng-click="createApartment()" class="btn btn-default btn-create navbar-btn">+ Create Apartment</button>
+                    <li style="float:right;">
+                        <select class="ng-pristine ng-valid" ng-model="selectedUser" ng-options="c.name for c in userList">
+                            <option selected="selected" value="" class="">Välj:</option>
+                        </select>
+                        <button data-ng-click="cancel()" type="button" class="btn btn-default navbar-btn">Cancel</button>
+                        <button data-ng-click="saveProject()" type="button" class="btn btn-default navbar-btn">Spara</button>
+                    </li>
+                </ul>
+            </div>
+            <section id="main-content">
+                <ul>
+                    <li>
+                        <div>
+                            <label for="lbl-projectname">Projektnamn:</label>
+                            <input id="lbl-projectname" data-ng-model="project.name" type="text" style="width: 60%;">
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <label for="lbl-projectconstructor">Projekt byggare:</label>
+                            <input id="lbl-projectconstructor" data-ng-model="project.builder" type="text" style="width: 60%;">
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <label for="lbl-appartments">Antal lägenheter:</label>
+                            <input id="lbl-appartments" data-ng-model="project.appartments" type="text">
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <label for="lbl-moveindate">Beräknad inflyttning:</label>
+                            <input id="lbl-moveindate" data-ng-model="project.endDate" type="text">
+                            <img class="ui-datepicker-trigger" src="content/images/calender-from.png" alt="..." title="...">
+                        </div>
+                    </li>
+                </ul>
+                <hr>
+                <ul>
+                    <li>
+                        <div class="forms-left">
+                            <label for="lbl-minprice">Min pris:</label>
+                            <input id="lbl-minprice" data-ng-model="project.endDate" type="text">
+                        </div>
+                        <div>
+                            <label for="lbl-maxprice">Max pris:</label>
+                            <input id="lbl-maxprice" data-ng-model="project.endDate" type="text">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="forms-left">
+                            <label for="lbl-minrooms">Min antal rum:</label>
+                            <input id="lbl-minrooms" data-ng-model="project.endDate" type="text">
+                        </div>
+                        <div>
+                            <label for="lbl-maxrooms">Max antal rum:</label>
+                            <input id="lbl-maxrooms" data-ng-model="project.endDate" type="text">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="forms-left">
+                            <label for="lbl-minrent">Min hyra:</label>
+                            <input id="lbl-minrooms" data-ng-model="project.endDate" type="text">
+                        </div>
+                        <div>
+                            <label for="lbl-maxrent">Max hyra:</label>
+                            <input id="lbl-maxrent" data-ng-model="project.endDate" type="text">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="forms-left">
+                            <label for="lbl-minarea">Min boarea:</label>
+                            <input id="lbl-minarea" data-ng-model="project.endDate" type="text">
+                        </div>
+                        <div>
+                            <label for="lbl-maxarea">Max boarea:</label>
+                            <input id="lbl-maxarea" data-ng-model="project.endDate" type="text">
+                        </div>
+                    </li>
+                </ul>
+                <hr>
+                <div class="project-info">
                     <ul>
                         <li>
-                            <table>
-                                <tr>
-                                    <td><h4>Projektnamn:</h4></td>
-                                    <td><input type="text" data-ng-model="project.name"></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Projekt Byggare:</h4></td>
-                                    <td><input type="text" data-ng-model="project.builder"></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Antal lägenheter:</h4></td>
-                                    <td><input type="text" data-ng-model="project.appartments"></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Min Pris:</h4></td>
-                                    <td>{{project.minPrice}}</td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Max Pris:</h4></td>
-                                    <td>{{project.maxPrice}}</td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Min Antal Rum:</h4></td>
-                                    <td>{{project.minRooms}}</td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Max Antal Rum:</h4></td>
-                                    <td>{{project.maxRooms}}</td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Min Hyra:</h4></td>
-                                    <td>{{project.minRent}}</td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Max Hyra:</h4></td>
-                                    <td>{{project.maxRent}}</td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Min Boarea:</h4></td>
-                                    <td>{{project.minSize}}</td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Max Boarea:</h4></td>
-                                    <td>{{project.maxSize}}</td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Beräknad inflyttning:</h4></td>
-                                    <td><input type="text" data-ng-model="project.endDate"></td>
-                                </tr>
-
-                            </table>
+                            <div>
+                                <label for="lbl-objecttitle">Beskrivningstitel:</label>
+                                <input id="objecttitle" data-ng-model="project.descriptionTitle" type="text" style="width: 60%;">
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <label for="lbl-objectdescription">Beskrivning:</label>
+                                <textarea id="objectdescription" rows="6" cols="100" data-ng-model="project.description"></textarea>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <label for="lbl-objectarea">Närområde:</label>
+                                <textarea id="objectarea" rows="6" cols="100" data-ng-model="project.areaInfo"></textarea>
+                            </div>
                         </li>
                     </ul>
-                    <br/>
-
-                    <div class="project-info">
-                        <hr>
-                        <h4>Beskrivningstitel:</h4>
-                        <input type="text" data-ng-model="project.descriptionTitle">
-                        <h4>Beskrivning:</h4>
-                        <textarea rows="6" cols="100" data-ng-model="project.description"></textarea>
-                        <hr>
-                        <h4>Närområde</h4>
-                        <textarea rows="6" cols="100" data-ng-model="project.areaInfo"></textarea>
-                    </div>
-                    <hr>
-                    <table>
-                        <tr data-ng-repeat="apartment in apartments">
-                            <td>{{apartment.rooms}}</td>
-                            <td>{{apartment.price}}</td>
-                            <td>{{apartment.size}}</td>
-                            <td><button data-ng-click="editApartment(apartment)">Edit</button></td>
-                            <td><button data-ng-click="viewApartment(apartment)">View</button></td>
-                            <td><button data-ng-click="deleteApartment(apartment)">Delete</button></td>
-                        </tr>
-                    </table>
-                    <hr>
-                    <select ng-model="selectedUser" ng-options="c.name for c in userList"></select>
-                    <button data-ng-click="cancel()">Cancel</button>
-                    <button data-ng-click="saveProject()">Spara</button>
-                    <button data-ng-click="createApartment()">Create Apartment</button>
-                </section>
-
-
+                </div>
+            </section>
+        </div>
+        <div class="col-md-4 ">
+            <h3>Information</h3>
+            <div class="news ng-scope" data-ng-controller="NewsController">
+                <ul>
+                    <li data-ng-repeat="news in newsList" class="ng-scope">
+                        <span class="ng-binding">2014-05-21T10:05:07.863Z</span>
+                        <span class="ng-binding">Top Story</span>
+                        <p>
+                            Tony is a retard
+                        </p>
+                        <a href="#">Läs mer...</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+
 </div>

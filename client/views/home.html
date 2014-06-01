@@ -1,16 +1,26 @@
 <div data-ng-controller="SearchController">
 
-    <section id="banner-area">
-        <div>Banner Area</div>
-    </section>
-    <div id="main-container">
-        <div class="main-inner-container">
-            <div class="left-container">
+    <div class="jumbotron">
+        <div class="container">
+            <div class="welcome-text">
+                Välkommen till <strong>nyprod.se</strong><br>
+                Sajten som listar alla nyproducerade<br>
+                lägenheter i Stockholm, Göteborg & Malmö
+            </div>
+            <!-- <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+            <p><a class="btn btn-primary btn-lg" role="button">Learn more »</a></p> -->
+        </div>
+    </div>
+
+
+    <div id="content-container" class="container">
+        <div class="row show-grid">
+            <div class="col-md-8">
+                <h3>Content</h3>
                 <section id="map-area">
                     <google-map center='map.center' zoom='map.zoom' draggable="true"></google-map>
                 </section>
-
-                <section id="main-content">
+                <section>
                     <div>
                         <ul>
                             <li data-ng-repeat="project in projects">
@@ -44,45 +54,45 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li>
-                                <div class="paginator">
-                                    <div class="results">
-                                        Sökresultat: <span>{{projects.length}}</span>
-                                    </div>
-                                    <div class="paginator-2">
-                                        <ul>
-                                            <li><span class="lbl-viewpage">Visa sida:</span></li>
-                                            <li><a href="#" class="ui-corner-all selected">1</a></li>
-                                            <li><a href="#" class="ui-corner-all">2</a></li>
-                                            <li><a href="#" class="ui-corner-all">3</a></li>
-                                            <li><a href="#" class="ui-corner-all">4</a></li>
-                                            <li><a href="#" class="ui-corner-all">5</a></li>
-                                            <li><a href="#" class="ui-corner-all">6</a></li>
-                                            <!--<li><a href="#" class="ui-corner-all">&lt;</a></li>-->
-                                            <li><a href="#" class="ui-corner-all">&gt;</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                 </section>
+                <section>
+                    <div>
+                        <div class="results">
+                            Sökresultat: <span>{{projects.length}}</span><!-- <span class="ng-binding results-hit">0</span> | <a href="#" style="color:#666666">Dölj karta</a> -->
+                        </div>
+                        <div class="paginator">
+                            <span class="lbl-viewpage">Visa sida:</span>
+                            <ul class="pagination pull-right">
+                                <li><a href="#">&laquo;</a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">&raquo;</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
             </div>
-            <div class="right-container">
-                <div class="news" data-ng-controller="NewsController">
-                    <h3>Nya projekt</h3>
+            <div class="col-md-4 ">
+                <h3>Nya projekt</h3>
+                <div class="news ng-scope" data-ng-controller="NewsController">
                     <ul>
                         <li data-ng-repeat="news in newsList">
+                            <span>{{news.date}}</span>
+                            <span>{{news.title}}</span>
                             <p>
-                                <strong>{{news.date}}</strong>
-                                <strong>{{news.title}}</strong>
                                 {{news.content}}
-                                <a href="#">Läs mer...</a>
                             </p>
+                            <a href="#">Läs mer...</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
+
     </div>
 </div>

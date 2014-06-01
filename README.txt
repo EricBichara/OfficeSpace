@@ -22,3 +22,9 @@ Install Grunt plugins
 MONGOHQ_URL: mongodb://heroku:DNpvgxQC4XFNx2i5ZPyn8rKUrNvxcwbgD6Rfn0ERc0bddxgMSaDiDcnU-kUJF7qgxu9wewqkup3C6rIJzMeFjg@dharma.mongohq.com:10021/app16402159
 
 
+Running Project:
+1) Start MongoDB
+    Interminal write: mongod
+2) Start Grunt:
+    In grunt Tab, double click "default"
+3) Run Node, Green Arrow at Top of Webstorm

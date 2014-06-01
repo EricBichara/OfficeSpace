@@ -301,7 +301,7 @@ hr {
 
 /* line 255, ../scss/styles.scss */
 table tr td {
-  padding: 5px 40px 5px 0px;
+  padding: 5px  40px 5px 0px;
 }
 
 /* line 261, ../scss/styles.scss */
@@ -319,4 +319,69 @@ table tr td {
 /* line 274, ../scss/styles.scss */
 .small-image {
   height: 50px;
+}
+
+/* TONY TEMP - TO BE SORTED INTO SCSS */
+/* line 281, ../scss/styles.scss */
+#main-content .forms-left {
+  width: 48%;
+  float: left;
+}
+
+/* line 285, ../scss/styles.scss */
+#main-content div {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* line 289, ../scss/styles.scss */
+.toolbar {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: #eee;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+/* line 296, ../scss/styles.scss */
+button {
+  background-color: #0094b5;
+  border: 1px solid #0094b5;
+  box-shadow: none;
+  color: #fff;
+  border-radius: 2px;
+  transition: all 100ms ease-out;
+}
+
+/* line 304, ../scss/styles.scss */
+.btn-create {
+  background-color: #00B52B;
+  border: 1px solid #00B52B;
+}
+
+/* line 308, ../scss/styles.scss */
+input {
+  height: 30px;
+}
+
+/* line 311, ../scss/styles.scss */
+input, textarea {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 0 6px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+
+/* line 321, ../scss/styles.scss */
+label {
+  min-width: 180px;
+}
+
+/* line 324, ../scss/styles.scss */
+#main-container .main-inner-container .left-container {
+  max-width: 834px;
 }
