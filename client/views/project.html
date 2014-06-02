@@ -45,6 +45,15 @@
                         </p>
                     </div>
                     <hr>
+                    <h4>Apartments</h4>
+                    <table>
+                        <tr data-ng-repeat="apartment in apartments">
+                            <td>{{apartment.rooms}}</td>
+                            <td>{{apartment.price}}</td>
+                            <td>{{apartment.size}}</td>
+                        </tr>
+                    </table>
+                    <hr>
                     <div class="project-info">
                         <h4>Kontact</h4>
                         <table>
@@ -62,24 +71,10 @@
                             </tr>
                         </table>
                     </div>
-
                 </section>
+
             </div>
-            <div class="right-container" style="margin-top:25px;">
-                <div class="news" data-ng-controller="NewsController">
-                    <h3>Nya projekt</h3>
-                    <ul>
-                        <li data-ng-repeat="news in newsList">
-                            <p>
-                                <strong>{{news.date}}</strong>
-                                <strong>{{news.title}}</strong>
-                                {{news.content}}
-                                <a href="#">Läs mer...</a>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
