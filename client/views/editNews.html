@@ -1,23 +1,66 @@
-<div id="main-container">
-    <div class="main-inner-container">
-        <div class="left-container">
-            <section id="main-content">
-                <h1>Edit News</h1>
-                <button data-ng-click="createNews()">Create News</button>
+
+<div id="content-container" class="container">
+    <div class="row show-grid">
+        <div class="col-md-8">
+            <h3>Lägg till / Ändra på nyheter</h3>
+            <div class="toolbar">
+                <ul>
+                    <li style="float:left;">
+                        <button data-ng-click="createNews()">+ Create News</button>
+                    </li>
+                    <li style="float:right;">
+                        <button data-ng-click="saveNews()">Save</button>
+                    </li>
+                </ul>
+            </div>
+            <div>
                 <ul>
                     <li data-ng-repeat="news in newsList">
                         <label data-ng-click="selectNews(news)">{{news.title}}</label>
                         <button data-ng-click="deleteNews(news._id)">Delete</button>
                     </li>
                 </ul>
+            </div>
+
+            <hr/>
+
+            <section id="main-content">
+                <div class="project-info">
+                    <ul>
+                        <li>
+                            <div>
+                                <label for="lbl-moveindate">Välj datum:</label>
+                                <input type="text" ng-model="selectedNews.date" data-is-open="opened" datepicker-popup="dd-MMMM-yyyy" datepicker-options="dateOptions"/>
+                                <button class="btn btn-default" data-ng-click="open($event)">
+                                <img class="ui-datepicker-trigger" src="content/images/calender-from.png" alt="..." title="...">
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <label for="lbl-objecttitle">Beskrivningstitel:</label>
+                                <input id="objecttitle" data-ng-model="selectedNews.title" type="text" style="width: 60%;" class="ng-pristine ng-valid">
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <label for="lbl-objectdescription">Beskrivning:</label>
+                                <textarea id="objectdescription" rows="6" cols="100" data-ng-model="selectedNews.content" class="ng-pristine ng-valid"></textarea>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </section>
+
         </div>
-        <div>
-            <input data-ng-model="selectedNews.title">
-            <input data-ng-model="selectedNews.content">
-            <input type="text" ng-model="selectedNews.date" data-is-open="opened" datepicker-popup="dd-MMMM-yyyy" datepicker-options="dateOptions"/>
-            <button class="btn btn-default" data-ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+        <div class="col-md-4 ">
+            <h3>Information</h3>
+            <div class="news ng-scope" data-ng-controller="NewsController">
+                <ul>
+                    <li data-ng-repeat="news in newsList" class="ng-scope">
+                        <p>eric likes ....</p>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <button data-ng-click="saveNews()">Save</button>
     </div>
 </div>

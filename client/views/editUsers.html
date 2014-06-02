@@ -1,22 +1,40 @@
-<div id="main-container">
-    <div class="main-inner-container">
-        <div class="left-container">
-            <section id="main-content">
-                <h1>Edit Users</h1>
-                <button data-ng-click="createUser()">Create User</button>
+<div id="content-container" class="container">
+    <div class="row show-grid">
+        <div class="col-md-8">
+            <h3>Editera användare</h3>
+            <div class="toolbar">
+                <ul>
+                    <li>
+                        <button data-ng-click="createUser()">Create User</button>
+                    </li>
+                </ul>
+            </div>
+            <div>
                 <ul>
                     <li data-ng-repeat="user in userList">
                         <label data-ng-click="selectUser(user)">{{user.name}}</label>
                         <button data-ng-click="deleteUser(user._id)">Delete</button>
                     </li>
                 </ul>
-            </section>
+            </div>
+            <div>
+                <div>
+                    <input data-ng-model="selectedUser.name" placeholder="Namn">
+                    <input data-ng-model="selectedUser.telephone" placeholder="Telefon">
+                    <input data-ng-model="selectedUser.email" placeholder="E-mail">
+                </div>
+                <button data-ng-click="saveUser()">Save</button>
+            </div>
         </div>
-        <div>
-            <input data-ng-model="selectedUser.name">
-            <input data-ng-model="selectedUser.telephone">
-            <input data-ng-model="selectedUser.email">
+        <div class="col-md-4 ">
+            <h3>Information</h3>
+            <div class="news ng-scope" data-ng-controller="NewsController">
+                <ul>
+                    <li data-ng-repeat="news in newsList" class="ng-scope">
+                        <p>eric likes ....</p>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <button data-ng-click="saveUser()">Save</button>
     </div>
 </div>

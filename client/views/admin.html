@@ -1,7 +1,27 @@
-<div id="main-container" style="margin-top:200px">
-    <div class="main-inner-container">
-        <button data-ng-click="editProjects()">Edit Projects</button>
-        <button data-ng-click="editNews()">Edit News</button>
-        <button data-ng-click="editUsers()">Edit Users</button>
+
+<div id="content-container" class="container">
+    <div class="row show-grid">
+        <div class="col-md-8">
+            <h3>Lägg till</h3>
+            <div class="toolbar">
+                <ul>
+                    <li style="float:left;">
+                        <button data-ng-click="editProjects()" type="button" class="btn btn-default navbar-btn">Edit Projects</button>
+                        <button data-ng-click="editNews()" type="button" class="btn btn-default navbar-btn">Edit News</button>
+                        <button data-ng-click="editUsers()" type="button" class="btn btn-default navbar-btn">Edit Users</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <h3>Information</h3>
+            <div class="news ng-scope" data-ng-controller="NewsController">
+                <ul>
+                    <li data-ng-repeat="news in newsList" class="ng-scope">
+                        <p>eric likes ....</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
