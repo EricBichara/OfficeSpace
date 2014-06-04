@@ -58,7 +58,6 @@ h4 {
 #content-container {
   padding: 25px 15px;
   text-align: left;
-  margin-top: 50px;
   .thumbs-project {
     .thumb-main {
       width: 100%;
@@ -117,6 +116,20 @@ h4 {
     margin: 0;
   }
 }
+.resultslist {
+  ul {
+    li {
+      border-bottom: 1px Solid #ccc;
+      padding: 10px 0;
+      margin: 10px 0;
+      button {
+        float: right;
+        background: none;
+        border: none;
+      }
+    }
+  }
+}
 .results {
   float: left;
   margin: 25px 0;
@@ -140,6 +153,51 @@ h4 {
 td:nth-child(2) {
   text-align: right;
 }
+/************************************************************************************
+*
+* Admin
+*
+************************************************************************************/
+.admin-toolbar {
+  display: block;
+  height: 55px;
+  margin-top: 55px;
+  background: #eef0f1;
+  border-bottom: 1px Solid #d2d2d2;
+  .navbar-collapse {
+    float: right;
+    margin-right: 0;
+    padding-right: 0;
+    ul {
+      li {
+        margin-left: 10px;
+        a {
+          color: #888;
+        }
+        .selected {
+          color: #e1242e;
+        }
+        .admin-dashboard {
+          background: url(../images/ico-admin-dashboard.png) no-repeat center left;
+          padding-left: 36px;
+        }
+        .admin-myprojects {
+          background: url(../images/ico-admin-projects.png) no-repeat center left;
+          padding-left: 36px;
+        }
+        .admin-news {
+          background: url(../images/ico-admin-news.png) no-repeat center left;
+          padding-left: 36px;
+        }
+        .admin-users {
+          background: url(../images/ico-admin-users.png) no-repeat center left;
+          padding-left: 36px;
+        }
+      }
+    }
+  }
+}
+
 /************************************************************************************
 *
 * Generel

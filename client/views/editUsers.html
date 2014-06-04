@@ -1,3 +1,23 @@
+<div class="admin-toolbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li c/lass="active"><a href="#/adminDashboard" class="admin-dashboard">Dashboard</a></li>
+                <li><a href="#/adminProjects" class="admin-myprojects" >Dina projekt</a></li>
+                <li><a href="#/adminNews" class="admin-news">Nyheter</a></li>
+                <li><a href="#/adminUsers" class="admin-users selected">Användare</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 <div id="content-container" class="container">
     <div class="row show-grid">
         <div class="col-md-8">
@@ -10,14 +30,6 @@
                 </ul>
             </div>
             <div>
-                <ul>
-                    <li data-ng-repeat="user in userList">
-                        <label data-ng-click="selectUser(user)">{{user.name}}</label>
-                        <button data-ng-click="deleteUser(user._id)">Delete</button>
-                    </li>
-                </ul>
-            </div>
-            <div>
                 <div>
                     <input data-ng-model="selectedUser.name" placeholder="Namn">
                     <input data-ng-model="selectedUser.telephone" placeholder="Telefon">
@@ -25,6 +37,16 @@
                 </div>
                 <button data-ng-click="saveUser()">Save</button>
             </div>
+
+            <div class="resultslist">
+                <ul>
+                    <li data-ng-repeat="user in userList">
+                        <label data-ng-click="selectUser(user)">{{user.name}}</label>
+                        <button data-ng-click="deleteUser(user._id)"><!--Delete--><img src="content/images/ico-close.png" /></button>
+                    </li>
+                </ul>
+            </div>
+
         </div>
         <div class="col-md-4 ">
             <h3>Information</h3>
