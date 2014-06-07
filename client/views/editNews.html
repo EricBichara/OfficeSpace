@@ -25,42 +25,49 @@
             <div class="toolbar">
                 <ul>
                     <li style="float:left;">
-                        <button data-ng-click="createNews()">+ Create News</button>
+                        <button data-ng-click="createNews()" class="btn-create">+ Skapa nyhet</button>
                     </li>
                     <li style="float:right;">
-                        <button data-ng-click="saveNews()">Save</button>
+                        <button data-ng-click="saveNews()" class="btn-save">Spara</button>
                     </li>
                 </ul>
             </div>
 
             <section id="main-content">
-                <div class="project-info">
+                <div class="add-news">
                     <ul>
                         <li>
                             <div>
-                                <label for="lbl-moveindate">Välj datum:</label>
-                                <input type="text" ng-model="selectedNews.date" data-is-open="opened" datepicker-popup="dd-MMMM-yyyy" datepicker-options="dateOptions"/>
-                                <button class="btn btn-default" data-ng-click="open($event)">
-                                    <img class="ui-datepicker-trigger" src="content/images/calender-from.png" alt="..." title="...">
+                                <label for="lbl-objecttitle">Beskrivningstitel:</label>
+                                <input id="objecttitle" data-ng-model="selectedNews.title" type="text" class="ng-pristine ng-valid">
+                            </div>
+                            <div>
+                                <label for="lbl-moveindate">Publiceringsdatum:</label>
+                                <input id="lbl-moveindate" data-ng-model="project.endDate" type="text" class="ng-pristine ng-valid">
+                                <img class="ui-datepicker-trigger" src="content/images/calender-from.png" alt="..." title="...">
                             </div>
                         </li>
                         <li>
                             <div>
                                 <label for="lbl-objecttitle">Beskrivningstitel:</label>
-                                <input id="objecttitle" data-ng-model="selectedNews.title" type="text" style="width: 60%;" class="ng-pristine ng-valid">
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <label for="lbl-objectdescription">Beskrivning:</label>
                                 <textarea id="objectdescription" rows="6" cols="100" data-ng-model="selectedNews.content" class="ng-pristine ng-valid"></textarea>
+                            </div>
+                            <div>
+                                <label for="lbl-moveindate">Giltig t.o.m.:</label>
+                                <input id="lbl-moveindate" data-ng-model="project.endDate" type="text" class="ng-pristine ng-valid">
+                                <img class="ui-datepicker-trigger" src="content/images/calender-to.png" alt="..." title="...">
                             </div>
                         </li>
                     </ul>
                 </div>
             </section>
 
+            <hr/>
+            <h3>Dina nyheter</h3>
+            <hr/>
+
             <div class="resultslist">
+
                 <ul>
                     <li data-ng-repeat="news in newsList">
                         <label data-ng-click="selectNews(news)">{{news.title}}</label>
