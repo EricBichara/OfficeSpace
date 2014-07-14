@@ -1,0 +1,551 @@
+/************************************************************************************
+*
+* Main Settings
+*
+************************************************************************************/
+/* line 6, ../scss/tony.scss */
+body {
+  background: #f9f9f9 url(../images/bg-noise.png) repeat top left;
+  margin: 0;
+  padding: 0;
+  font-family: openSansRegular, arial;
+  font-size: 14px;
+  color: #555;
+}
+
+/* line 14, ../scss/tony.scss */
+h1 {
+  font-family: openSansCondensedBold;
+  font-size: 36px;
+}
+
+/* line 18, ../scss/tony.scss */
+h3 {
+  font-family: OpenSansCondensedBold;
+  color: #303535;
+}
+
+/* line 22, ../scss/tony.scss */
+h4 {
+  font-family: OpenSansSemiboldRegular;
+  color: #292b2b;
+}
+
+/************************************************************************************
+*
+* Nav Bar
+*
+************************************************************************************/
+/* line 33, ../scss/tony.scss */
+.navbar-inverse {
+  background: #ffffff;
+  /* height: 60px; */
+  border-bottom: 3px Solid #e1242e;
+}
+/* line 37, ../scss/tony.scss */
+.navbar-inverse .navbar-nav {
+  float: right;
+}
+/* line 39, ../scss/tony.scss */
+.navbar-inverse .navbar-nav > li {
+  font-size: 16px;
+}
+/* line 41, ../scss/tony.scss */
+.navbar-inverse .navbar-nav > li a {
+  color: #2b2b2b;
+}
+/* line 46, ../scss/tony.scss */
+.navbar-inverse .navbar-brand {
+  color: #999;
+  padding: 10px;
+}
+
+/************************************************************************************
+*
+* Content
+*
+************************************************************************************/
+/* line 58, ../scss/tony.scss */
+#content-container {
+  padding: 25px 15px;
+  text-align: left;
+}
+/* line 62, ../scss/tony.scss */
+#content-container .thumbs-project .thumb-main {
+  width: 100%;
+}
+/* line 65, ../scss/tony.scss */
+#content-container .thumbs-project .thumb-small {
+  width: 100%;
+  max-height: 128px;
+}
+/* line 70, ../scss/tony.scss */
+#content-container .toolbar {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: #eee;
+  margin: 15px 0 20px 0;
+  overflow: hidden;
+}
+/* line 76, ../scss/tony.scss */
+#content-container .toolbar .btn-create {
+  background-color: #00B52B;
+  border: 1px solid #00B52B;
+}
+/* line 80, ../scss/tony.scss */
+#content-container .toolbar button {
+  background-color: #0094b5;
+  border: 1px solid #0094b5;
+  box-shadow: none;
+  color: #fff;
+  border-radius: 2px;
+  padding: 4px 12px;
+  transition: all 100ms ease-out;
+}
+/* line 88, ../scss/tony.scss */
+#content-container .toolbar button.btn-save {
+  background-color: #17A454;
+  border: 1px Solid #17A454;
+}
+/* line 92, ../scss/tony.scss */
+#content-container .toolbar button.btn-create {
+  background-color: #535351;
+  border: 1px Solid #535351;
+}
+/* line 97, ../scss/tony.scss */
+#content-container .toolbar ul {
+  margin: 0;
+  padding: 0;
+}
+/* line 103, ../scss/tony.scss */
+#content-container #main-content .forms-left {
+  width: 50%;
+  float: left;
+}
+/* line 107, ../scss/tony.scss */
+#content-container #main-content div {
+  width: 100%;
+  margin-bottom: 15px;
+}
+/* line 110, ../scss/tony.scss */
+#content-container #main-content div p {
+  color: #292b2b;
+}
+/* line 117, ../scss/tony.scss */
+#content-container #main-content .add-news ul li div {
+  float: left;
+  width: 30%;
+}
+/* line 118, ../scss/tony.scss */
+#content-container #main-content .add-news ul li div:first-child {
+  color: red;
+  width: 65%;
+  margin-right: 20px;
+}
+/* line 122, ../scss/tony.scss */
+#content-container #main-content .add-news ul li div:first-child input {
+  width: 100%;
+}
+/* line 128, ../scss/tony.scss */
+#content-container #main-content .add-news ul li div label {
+  display: block;
+}
+
+/* line 138, ../scss/tony.scss */
+.news {
+  background: white;
+  border: 1px Solid #ccc;
+  padding: 15px;
+  margin-top: 15px;
+}
+/* line 143, ../scss/tony.scss */
+.news h3 {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 150, ../scss/tony.scss */
+.resultslist ul li {
+  border-bottom: 1px Solid #ccc;
+  padding: 10px 0;
+  margin: 10px 0;
+}
+/* line 154, ../scss/tony.scss */
+.resultslist ul li button {
+  float: right;
+  background: none;
+  border: none;
+}
+
+/* line 162, ../scss/tony.scss */
+.results {
+  float: left;
+  margin: 25px 0;
+}
+/* line 165, ../scss/tony.scss */
+.results .results-hit {
+  font-family: arial;
+  font-size: 18px;
+  font-weight: bold;
+  color: #e1242e;
+}
+
+/* line 182, ../scss/tony.scss */
+td:nth-child(2) {
+  text-align: right;
+}
+
+/************************************************************************************
+*
+* Admin
+*
+************************************************************************************/
+/* line 190, ../scss/tony.scss */
+.admin-toolbar {
+  display: block;
+  height: 55px;
+  margin-top: 55px;
+  background: #eef0f1;
+  border-bottom: 1px Solid #d2d2d2;
+}
+/* line 196, ../scss/tony.scss */
+.admin-toolbar .navbar-collapse {
+  float: right;
+  margin-right: 0;
+  padding-right: 0;
+}
+/* line 201, ../scss/tony.scss */
+.admin-toolbar .navbar-collapse ul li {
+  margin-left: 10px;
+}
+/* line 203, ../scss/tony.scss */
+.admin-toolbar .navbar-collapse ul li a {
+  color: #888;
+}
+/* line 206, ../scss/tony.scss */
+.admin-toolbar .navbar-collapse ul li .selected {
+  color: #e1242e;
+}
+/* line 209, ../scss/tony.scss */
+.admin-toolbar .navbar-collapse ul li .admin-dashboard {
+  background: url(../images/ico-admin-dashboard.png) no-repeat center left;
+  padding-left: 36px;
+}
+/* line 213, ../scss/tony.scss */
+.admin-toolbar .navbar-collapse ul li .admin-myprojects {
+  background: url(../images/ico-admin-projects.png) no-repeat center left;
+  padding-left: 36px;
+}
+/* line 217, ../scss/tony.scss */
+.admin-toolbar .navbar-collapse ul li .admin-news {
+  background: url(../images/ico-admin-news.png) no-repeat center left;
+  padding-left: 36px;
+}
+/* line 221, ../scss/tony.scss */
+.admin-toolbar .navbar-collapse ul li .admin-users {
+  background: url(../images/ico-admin-users.png) no-repeat center left;
+  padding-left: 36px;
+}
+
+/************************************************************************************
+*
+* Generel
+*
+************************************************************************************/
+/* line 235, ../scss/tony.scss */
+ul {
+  list-style-type: none;
+}
+/* line 237, ../scss/tony.scss */
+ul li {
+  overflow: hidden;
+}
+
+/* line 241, ../scss/tony.scss */
+hr {
+  border: 0;
+  color: #ccc;
+  background-color: #ccc;
+  border-top: 1px solid #eee;
+  height: 1px;
+  margin: 20px 0;
+}
+
+/* line 250, ../scss/tony.scss */
+.labb {
+  /*background: white;
+  border: 1px Solid #ccc;*/
+  padding: 15px 0;
+}
+
+/* line 255, ../scss/tony.scss */
+.round-corner {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+
+/* line 262, ../scss/tony.scss */
+a {
+  color: #e1242e;
+}
+
+/************************************************************************************
+*
+* Forms
+*
+************************************************************************************/
+/* line 270, ../scss/tony.scss */
+input, textarea {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 0 6px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+
+/* line 280, ../scss/tony.scss */
+input {
+  height: 30px;
+}
+
+/* line 283, ../scss/tony.scss */
+textarea {
+  width: 100%;
+}
+
+/* line 286, ../scss/tony.scss */
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+  min-width: 170px;
+  font-weight: inherit;
+  color: #333;
+}
+
+/* line 293, ../scss/tony.scss */
+.ui-datepicker-trigger {
+  position: relative;
+  right: 28px;
+}
+
+/* line 297, ../scss/tony.scss */
+select {
+  border: solid 1px #ccc;
+  color: #555;
+  display: inline-block;
+  font-size: 13px;
+  height: 30px;
+  line-height: 27px;
+  padding: 4px 6px;
+  vertical-align: middle;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+
+/************************************************************************************
+*
+* Google Maps
+*
+************************************************************************************/
+/* line 320, ../scss/tony.scss */
+.angular-google-map-container {
+  height: 400px;
+  width: 100%;
+  margin: 15px 0;
+  border: 5px solid white;
+  -webkit-box-shadow: 0px 0px 1px #8b8b8b;
+  -moz-box-shadow: 0px 0px 1px #8b8b8b;
+  box-shadow: 0px 0px 1px #8b8b8b;
+  overflow: hidden;
+}
+
+/* line 333, ../scss/tony.scss */
+.small-image {
+  height: 50px;
+}
+
+/************************************************************************************
+*
+* Bootsrap Overrides
+*
+************************************************************************************/
+/* line 342, ../scss/tony.scss */
+.col-md-8,
+.col-md-4 {
+  overflow: hidden;
+}
+/* line 344, ../scss/tony.scss */
+.col-md-8 ul,
+.col-md-4 ul {
+  padding-left: 0;
+}
+
+/* line 348, ../scss/tony.scss */
+.jumbotron {
+  padding: 30px;
+  margin-bottom: 0px;
+  color: inherit;
+  background-color: #eee;
+  height: 300px;
+  background: url(../images/bg-header.png);
+}
+/* line 355, ../scss/tony.scss */
+.jumbotron .welcome-text {
+  font-family: 'Droid Serif' !important;
+  font-style: italic;
+  font-weight: 400;
+  color: white;
+  font-size: 30px;
+  position: relative;
+  top: 77px;
+}
+
+/* line 365, ../scss/tony.scss */
+.paginator {
+  border-top: none;
+  float: right;
+  border-bottom: none;
+  overflow: hidden;
+  margin: 25px 0;
+}
+/* line 372, ../scss/tony.scss */
+.paginator span.lbl-viewpage {
+  margin-right: 10px;
+  float: left;
+  margin-top: 6px;
+  display: block;
+}
+/* line 379, ../scss/tony.scss */
+.paginator ul {
+  overflow: hidden;
+  margin: 0 auto;
+  float: right;
+}
+/* line 383, ../scss/tony.scss */
+.paginator ul li {
+  float: left;
+  margin: 0px 4px;
+}
+/* line 386, ../scss/tony.scss */
+.paginator ul li span {
+  margin: 6px 0 0 0;
+  float: left;
+}
+/* line 390, ../scss/tony.scss */
+.paginator ul li a {
+  padding: 5px 10px;
+  display: block;
+  color: #bdbec0;
+  background: transparent;
+  border: 1px Solid #bdbec0;
+  text-decoration: none;
+  font-size: 16px;
+  text-align: center;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-family: arial;
+  font-size: 16px;
+  color: #8a8989;
+  margin-left: 0 !important;
+  -webkit-border-radius: 2px !important;
+  -moz-border-radius: 2px !important;
+  -ms-border-radius: 2px !important;
+  -o-border-radius: 2px !important;
+  border-radius: 2px !important;
+}
+/* line 411, ../scss/tony.scss */
+.paginator ul li a.selected {
+  border: 1px Solid #5a9fc3;
+  background-color: #5a9fc3;
+  color: #fff;
+}
+
+/* line 420, ../scss/tony.scss */
+.navbar-toggle {
+  position: relative;
+  float: right;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-right: 15px;
+  margin-bottom: 8px;
+  background-color: #333;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+/* line 432, ../scss/tony.scss */
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+  color: #444;
+  background-color: transparent;
+  border-color: #e1242e;
+}
+
+/* line 437, ../scss/tony.scss */
+.paginator ul li a {
+  border: 1px Solid #999999;
+  font-size: 14px;
+}
+/* line 440, ../scss/tony.scss */
+.paginator ul li a:hover {
+  border: 1px Solid #bdbec0;
+}
+
+/* line 444, ../scss/tony.scss */
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+  color: #e1242e;
+}
+
+@media (max-width: 768px) {
+  /* line 449, ../scss/tony.scss */
+  ul.thumb-list-small {
+    margin-top: 15px;
+  }
+  /* line 451, ../scss/tony.scss */
+  ul.thumb-list-small li {
+    width: 32%;
+    float: left;
+  }
+  /* line 454, ../scss/tony.scss */
+  ul.thumb-list-small li:first-child {
+    margin-right: 14px;
+  }
+  /* line 457, ../scss/tony.scss */
+  ul.thumb-list-small li:last-child {
+    float: right;
+  }
+
+  /* line 462, ../scss/tony.scss */
+  .jumbotron .welcome-text {
+    font-size: 24px;
+    top: 60px;
+  }
+}
+@media (max-width: 640px) {
+  /* line 469, ../scss/tony.scss */
+  .navbar .container {
+    padding: 0;
+    margin: 0;
+  }
+  /* line 472, ../scss/tony.scss */
+  .navbar .container .navbar-collapse {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  /* line 476, ../scss/tony.scss */
+  .navbar .container .navbar-collapse .navbar-nav {
+    width: 100%;
+    margin: 0;
+  }
+}
